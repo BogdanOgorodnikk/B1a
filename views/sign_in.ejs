@@ -1,0 +1,38 @@
+<%- include('layout/head.ejs')%>
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="header__top--box top__box--sign">
+                <div class="top__box--logo">
+                    <a href="/"><img src="images/logo.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__menu">
+        <div class="container">
+            <nav class="nav header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/" class="nav__link">На головну</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main class="main">
+    <section class="sign-in">
+        <div class="container">
+            <div class="sign-in__block">
+                <form action="" class="sign-in__form">
+                    <h3 class="sign-in__form--info">Введіть логін</h3>
+                    <div class="sign-in__line"><input id="login-login" name="login" type="text" class="sign-in__form--input sign-in__form--login" placeholder="Логін"></div>
+                    <h3 class="sign-in__form--info">Введіть пароль</h3>
+                    <div class="sign-in__line"><input id="login-password" name="password" type="password" class="sign-in__form--input sign-in__form--password" placeholder="Пароль"></div>
+                    <div class="sign-in__line"><input type="submit" class="login-button button sign-in__form--submit sign-in__form--button" value="Ввійти"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('layout/footer.ejs')%>

@@ -1,0 +1,94 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="create-client" id="<%=post.owner%>">
+        <div class="container">
+            <h1 class="table__headline" id="<%=post.id %>">Назва таблиці: <%=post.title %></h1>
+            <% if(user.admin) { %>
+            <div class="create-clien__name">
+                <h3 class="create-clien__headline">Створити нового клієнта</h3>
+                <form action="" class="create-client__form">
+                    <input type="text" class="create-client__form--input" id="client-headline" name="clientheadline">
+                    <input type="submit" class="client-button button create-client__form--submit" value="Створити" >
+                </form>
+            </div>
+            <% } %>
+        </div>
+    </section>
+    <section class="table">
+        <div class="container">
+            <div class="table__head">
+                <div class="table__head--name">
+                    <h3 class="table__head--describe">Ім'я клієнта</h3>
+                </div>
+                <% if(user.admin || user.accountant) { %>
+                <div class="table__head--name">
+                    <h3 class="table__head--describe">Борг клієнта</h3>
+                </div>
+                <div class="table__head--name">
+                    <h3 class="table__head--describe">Сума залишків клієнта</h3>
+                </div>
+                <div class="table__head--name">
+                    <h3 class="table__head--describe">Сума проданого товару</h3>
+                </div>
+                <% } %>
+            </div>
+            <div class="table__body" id="out">
+                <% for (var i = 0; i < clients.length; i++) { %> 
+                    <div class='table__point' > 
+                        <% if(user.login == clients[i].name || user.admin || user.logist || user.accountant || user.accountantnotnal || user.manager) { %>
+                        <div class='table__point--line'>
+                            <h3 class='table__point--out'>
+                                <a class="table__point--out-link" href="/products/<%=clients[i].url %>"><span class="table__point--out-respons">Ім'я клієнта:</span> <%=clients[i].headline %></a>
+                            </h3> 
+                        </div> 
+                        <% } %>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class='table__point--line'> 
+                            <h3 class='table__point--out'><span class="table__point--out-respons">Борг клієнта:</span>
+                                <% for (var j = 0; j < proos.length; j++) { %>
+                                    <% if(proos[j]["_id"] == clients[i].id) { %>
+                                        <%=Math.round(proos[j]["salary"])%>
+                                    <% } %>
+                                <% } %>
+                            </h3> 
+                        </div>
+                        <div class='table__point--line'> 
+                            <h3 class='table__point--out'><span class="table__point--out-respons">Сума залишків клієнта:</span>
+                                <% for (var j = 0; j < sumpith.length; j++) { %>
+                                    <% if(sumpith[j]["_id"] == clients[i].id) { %>
+                                        <%=Math.round(sumpith[j]["salary"])%>
+                                    <% } %>
+                                 <% } %>
+                            </h3> 
+                        </div>
+                        <div class='table__point--line'> 
+                            <h3 class='table__point--out'><span class="table__point--out-respons">Сума проданого товару:</span>
+                                <% for (var j = 0; j < proos.length; j++) { %>
+                                    <% if(proos[j]["_id"] == clients[i].id) { %>
+                                        <% for (var k = 0; k < sumpith.length; k++) { %>
+                                            <% if(sumpith[k]["_id"] == clients[i].id) { %>
+                                                <%= Math.round(proos[j]["salary"] - sumpith[k]["salary"]) %>
+                                            <% } %>
+                                         <% } %>
+                                    <% } %>
+                                <% } %>
+                            </h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin) { %>
+                        <div class='table__point--line table__point--delete'>
+                            <a class='table__point--out table__point--out-delete' href="<%=post.url %>/<%=clients[i].owner %>/<%=clients[i].id %>">Видалити</a>
+                        </div>
+                        <% } %>
+                    </div>    
+                <% } %>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

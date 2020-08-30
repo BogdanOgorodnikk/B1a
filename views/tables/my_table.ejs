@@ -1,0 +1,38 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="my-table">
+        <div class="container">
+            <% for (var i = 0; i < posts.length; i++) { %> 
+                <div class="my-table__box">
+                    <% if(user.admin || user.logist || user.accountant || user.accountantnotnal || user.manager && user.login == posts[i].manager || user.manager && user.login == posts[i].securitymanager || user.manager && user.login == posts[i].securitymanagersecond) { %>
+                    <div class="my-table__item">
+                        <h3 class="my-table__info"><a href="/tables/<%=posts[i].url %>" class="my-table__link"><%=posts[i].title %></a></h3>
+                    </div>
+                    <% } %>
+                    <% if(user.admin) { %>
+                    <% if(posts[i].manager == "") { %>
+                    <div class="my-table__item car-expect">
+                        <h3 class="my-table__info"><a href="/tables/my_tables/<%=posts[i].id %>" class="my-table__link">Для міста не закріплений менеджер</a></h3>
+                    </div>
+                    <% } else { %>
+                    <div class="my-table__item done">
+                        <h3 class="my-table__info"><a href="/tables/my_tables/<%=posts[i].id %>" class="my-table__link">Для міста закріплений менеджер</a></h3>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+
+
+
+<%- include('../layout/footer.ejs')%>

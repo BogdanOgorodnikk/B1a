@@ -1,0 +1,129 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="alluser">
+        <div class="container">
+                <div class="alluser__box">
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Логін користувача
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Заблокувати користувача
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Роль адміністратора
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Роль логіста
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Роль бухгалтера
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Роль бухгалтера безнал
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Роль менеджера
+                        </h3>
+                    </div>
+                    <div class="alluser__item">
+                        <h3 class="alluser__item--text">
+                            Змінити роль
+                        </h3>
+                    </div> 
+                </div>
+                <% if(user.admin == true) { %>
+                <% for (var i = 0; i < users.length; i++) { %>
+                    <div class="alluser__box">
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <%= users[i].login %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <% if(users[i].ban == true) { %>
+                                    Так
+                                <% } else { %>
+                                    Ні
+                                <% } %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <% if(users[i].isAdmin == true) { %>
+                                    Так
+                                <% } else { %>
+                                    Ні
+                                <% } %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <% if(users[i].isLogist == true) { %>
+                                    Так
+                                <% } else { %>
+                                    Ні
+                                <% } %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <% if(users[i].isAccountant == true) { %>
+                                    Так
+                                <% } else { %>
+                                    Ні
+                                <% } %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <% if(users[i].isAccountantnotnal == true) { %>
+                                    Так
+                                <% } else { %>
+                                    Ні
+                                <% } %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <% if(users[i].isManager == true) { %>
+                                    Так
+                                <% } else { %>
+                                    Ні
+                                <% } %>
+                            </h3>
+                        </div>
+                        <div class="alluser__item">
+                            <h3 class="alluser__item--text">
+                                <a class="alluser__item--text-link" href="allusers/<%= users[i].id %>">Змінити роль</a>
+                            </h3>
+                        </div> 
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+    </section>
+</main>
+
+
+<%- include('../layout/footer.ejs')%>

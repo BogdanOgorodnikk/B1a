@@ -1,0 +1,23 @@
+<%- include('layout/head.ejs')%>
+<header class="header">
+<%- include('layout/header.ejs')%>
+<%- include('layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+  <% if(user.ban) { %>
+    <script>
+      window.location.href = '/api/auth/logout';
+    </script>
+  <% } else { %>
+  <section class="about">
+      <div class="container">
+          <h2 class="about__headline"><span class="banner__headline--span">Про</span> 1B</h2>
+          <p class="about__describe">1B сайт ведення інформації про клієнтів</p>
+      </div>
+  </section>
+  <% } %>
+</main>
+        
+<%- include('layout/footer.ejs')%>

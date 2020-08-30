@@ -1,0 +1,58 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="borg">
+        <div class="container">
+            <div class="borg__title">
+                <h3 class="borg__title--name">
+                    Ім'я клієнта
+                </h3>
+                <h3 class="borg__title--name">
+                    Борг клієнта
+                </h3>
+                <h3 class="borg__title--name">
+                    Сума залишків клієнта
+                </h3>
+                <h3 class="borg__title--name">
+                    Сума проданого товару
+                </h3>
+            </div>
+            <% for(var i = 0; i < clients.length; i++) { %>
+            <div class="borg__box">
+                <div class="borg__item">
+                    <a class="borg__item--link" href="products/<%= clients[i].url %>"><%= clients[i].headline %></a>
+                </div>
+                <% for(var j = 0; j < proos.length; j++) { %>
+                <% if(proos[j]["_id"] == clients[i].id) { %>
+                <div class="borg__item">
+                    <%=Math.round(proos[j]["salary"])%>
+                </div>
+                <div class="borg__item">
+                    <% for (var k = 0; k < sumpith.length; k++) { %>
+                        <% if(sumpith[k]["_id"] == clients[i].id) { %>
+                            <%=Math.round(sumpith[k]["salary"]) %>
+                        <% } %>
+                     <% } %>  
+                </div>
+                <div class="borg__item">
+                    <% for (var k = 0; k < sumpith.length; k++) { %>
+                        <% if(sumpith[k]["_id"] == clients[i].id) { %>
+                            <%= Math.round(proos[j]["salary"] - sumpith[k]["salary"]) %>
+                        <% } %>
+                     <% } %>      
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+
+<%- include('../layout/footer.ejs')%>

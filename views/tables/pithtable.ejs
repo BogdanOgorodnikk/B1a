@@ -1,0 +1,114 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="pith-create">
+        <div class="container">
+            <h3 class="pith-create__headline" id="<%=clients.id %>">Залишки клієнта: <%=clients.headline %></h3>
+            <form action="" class="pith-create__form">
+                <div class="client-info__box">
+                    <div class="client-info__item"><input id="pith-create__data" class="client-info__input" type="text" placeholder="Дата"></div>
+                    <div class="client-info__item"><input id="pith-create__title" class="client-info__input" type="text" placeholder="Назва залишків"></div>
+                    <div class="client-info__item"><input id="pith-create__number" class="client-info__input" type="text" placeholder="Кількість залишків"></div>
+                    <div class="client-info__item"><input id="pith-create__price" class="client-info__input" type="text" placeholder="Ціна залишків"></div>
+                    <div class="client-info__item"><input id="pith-create__rosdb" class="client-info__input" type="text" placeholder="Ціна роздрібна"></div>
+                    <div class="client-info__item"><input  class="button pith-create__button" type="submit" value="Створити"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="pith-out">
+        <div class="container">
+            <div class="pith-out__comeback">
+                <a href="/products/<%=clients.url %>" class="pith-out__comeback--link">Повернутися назад</a>
+            </div>
+            <div class="client-product__out--top pith__table--bottom">
+                <div class="client-product__out--line">
+                    <div class="client-product__line--info client-product__line--index">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">№</span>№</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Дата</span>Дата</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Назва залишків</span>Назва залишків</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Кількість</span>Кількість</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Ціна</span>Ціна</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Ціна роздрібна</span>Ціна роздрібна</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Розраховувати</span>Розраховувати</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Внести зміни</span>Внести зміни</h3>
+                    </div>
+                 </div>
+                 <% for(var i = 0; i < piths.length; i++) { %>
+                 <div class="client-product__out--line">
+                    <div class="client-product__line--info client-product__line--index">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">№</span><%=i %></h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дата</span><%= piths[i].data %></h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Назва залишків</span><%= piths[i].title %></h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Кількість</span><%= piths[i].number %></h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна</span><%= piths[i].price %></h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна</span><%= piths[i].rosdb %></h3>
+                    </div>
+                    <% if(piths[i].math == true) { %>
+                        <div class="client-product__line--info done">
+                            <div class="client-product__math" id="<%=piths[i].id %>">
+                                <input type="checkbox" checked class="client-product__math--check" value="false">
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="client-product__line--info car-expect">
+                            <div class="client-product__math" id="<%=piths[i].id %>">
+                                <input type="checkbox" class="client-product__math--check" value="true">
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="client-product__line--info">
+                        <a class="client-product__line--link" href="/pithsedit/<%=piths[i].id %>">Зробити зміни</a>
+                    </div>
+                 </div>
+                 <% } %>
+             </div>
+        </div>
+    </section>
+    <section class="table">
+        <div class="container">
+            <div class="pith-table__debt">
+                    <div class='pith-table__point' > 
+                        <div class='pith-table__point--line'> 
+                            <h3 class='table__point--out'><span class="table__point--out-respons">Сума залишків клієнта:</span> Сума залишків клієнта:
+                                <% for (var j = 0; j < pross.length; j++) { %>
+                                    <% if(pross[j]["_id"] == clients.id) { %>
+                                        <%=pross[j]["salary"]%>
+                                    <% } %>
+                                <% } %>
+                            </h3> 
+                        </div>
+                    </div>    
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

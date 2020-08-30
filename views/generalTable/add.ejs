@@ -1,0 +1,22 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="new-table">
+        <div class="container">
+            <div class="new-table__create">
+                <form action="" class="new-table__form">
+                    <h3 class="new-table__form--headline">Введіть назву міста</h3>
+                    <div class="new-table__form--block"><input class="new-table__form--input" type="text" placeholder="Назва таблиці" id="post-title" name="title"></div>
+                    <div class="publish-button new-table__form--block"><input class="new-table__form--submit button" type="submit" value="Створити"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('../layout/footer.ejs')%>

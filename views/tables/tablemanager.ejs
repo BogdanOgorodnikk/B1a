@@ -1,0 +1,46 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="tablemanager">
+        <div class="container">
+            <h3 class="tablemanager__town" id="<%=posts.id %>">Назва міста: <%=posts.title %></h3>
+            <h3 class="tablemanager__town">Основний менеджер</h3>
+            <select name="" id="" class="tablemanager__name" id="tablemanager__name-val">
+                <% for(var i = 0; i < users.length; i++) { %>
+                    <% if(users[i].isManager) { %>
+                        <option value="<%=users[i].login %>" <% if(posts.manager == users[i].login) { %> selected <% } %>><%=users[i].login %></option>
+                    <% } %>
+                <% } %>
+            </select>
+            <h3 class="tablemanager__town">Запасний менеджер 1</h3>
+            <select name="" id="" class="tablemanagersecurity__name" id="tablemanagersecurity__name-val">
+                <% for(var i = 0; i < users.length; i++) { %>
+                    <% if(users[i].isManager) { %>
+                        <option value="<%=users[i].login %>" <% if(posts.securitymanager == users[i].login) { %> selected <% } %>><%=users[i].login %></option>
+                    <% } %>
+                <% } %>
+            </select>
+            <h3 class="tablemanager__town">Запасний менеджер 2</h3>
+            <select name="" id="" class="securitymanagersecond__name" id="securitymanagersecond__name-val">
+                <% for(var i = 0; i < users.length; i++) { %>
+                    <% if(users[i].isManager) { %>
+                        <option value="<%=users[i].login %>" <% if(posts.securitymanagersecond == users[i].login) { %> selected <% } %>><%=users[i].login %></option>
+                    <% } %>
+                <% } %>
+            </select>
+            <div class="tablemanager__block">
+                <button class="button tablemanager__button">Назначити менеджером</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+<%- include('../layout/footer.ejs')%>

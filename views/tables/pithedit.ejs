@@ -1,0 +1,84 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="my-table">
+        <div class="container">
+            <div class="user-edit__back">
+                <a href="/clientpiths/<%= piths.client %>" class="user-edit__back--link">Повернутися назад</a>
+            </div>
+            <form action="" class="user-edit__form">
+                <div class="user-edit__block pith-edit__id" id="<%= piths.id %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Дата
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="pith-edit__data" type="text" placeholder="Дата" value="<%= piths.data %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Назва залишка
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="pith-edit__title" type="text" placeholder="Назва" value="<%= piths.title %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Кількість залишка
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="pith-edit__number" type="text" placeholder="Кількість" value="<%= piths.number %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Ціна
+                        </h3>
+                    </div>
+                    <% if(piths.price == null) { %>
+                    <input class="user-edit__input" id="pith-edit__price" type="text" placeholder="Ціна" value="0">
+                    <% } else { %>
+                    <input class="user-edit__input" id="pith-edit__price" type="text" placeholder="Ціна" value="<%= piths.price %>">
+                    <% } %>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Роздрібна ціна
+                        </h3>
+                    </div>
+                    <% if(piths.rosdb == null) { %>
+                        <input class="user-edit__input" id="pith-edit__rosdb" type="text" placeholder="Роздрібна ціна" value="0">
+                    <% } else { %>
+                        <input class="user-edit__input" id="pith-edit__rosdb" type="text" placeholder="Роздрібна ціна" value="<%= piths.rosdb %>">
+                    <% } %>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Розраховувати
+                        </h3>
+                    </div>
+                    <input class="pith__check" id="pith-edit__math" type="checkbox" value="<%= piths.math %>" <% if(piths.math) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <button id="pith-edit__click" class="button user-edit__button">Застосувати зміни</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+
+<%- include('../layout/footer.ejs')%>

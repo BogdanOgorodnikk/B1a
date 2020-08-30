@@ -1,0 +1,189 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="user-edit">
+        <div class="container">
+            <div class="user-edit__back">
+                <a href="/products/<% for(var i = 0; i < clients.length; i++) { if(product.client == clients[i].id) { %> <%=clients[i].url %> <% } } %>" class="user-edit__back--link">Повернутися назад до таблиці</a>
+            </div>
+            <% if(user.admin || user.accountant || user.accountantnotnal) { %>
+            <div class="user-edit__back">
+                <a href="/allselers" class="user-edit__back--link">Повернутися назад до всіх продажів</a>
+            </div>
+            <% } %>
+            <form action="" class="user-edit__form">
+                <div class="user-edit__block">
+                    <h3 class="alluser-edit__title product-edit__id" id="<%= product.id %>">
+                        Id <%= product.id %>
+                    </h3>
+                    <div class="product-edit__number-val" id="<%= product.number %>"></div>
+                    <div class="product-edit__notnal-val" id="<%= product.notnal %>"></div>
+                    <div class="product-edit__nal-val" id="<%= product.nal %>"></div>
+                    <div class="product-edit__debt-val" id="<%= product.debt %>"></div>
+                    <div class="product-edit__debts-val" id="<%= product.debts %>"></div>
+                    <div class="product-edit__price-val" id="<%= product.price %>"></div>
+                    <div class="product-edit__opt-val" id="<%= product.opt %>"></div>
+                    <div class="product-edit__pricenotnal-val" id="<%= product.pricenotnal %>"></div>
+                    <div class="product-edit__deltadebtnal-val" id="<%= product.deltadebtnal %>"></div>
+                    <div class="product-edit__deltadebt-val" id="<%= product.deltadebt %>"></div>
+                    <% if(product.deliverynotnal == null) { %>
+                        <div class="product-edit__deliverynotnal-val" id="0"></div>
+                    <% } else { %>
+                        <div class="product-edit__deliverynotnal-val" id="<%= product.deliverynotnal %>"></div>
+                    <% } %>
+                    <% if(product.delivery == null) { %>
+                    <div class="product-edit__delivery-val" id="0"></div>   
+                    <% } else { %>
+                    <div class="product-edit__delivery-val" id="<%= product.delivery %>"></div>
+                    <% } %>
+                </div>
+                <div class="alluser-edit__bug">
+                    <h3 class="alluser-edit__title alluser-edit__bug-info">
+                        Назва фірми: <%= product.firms %>
+                    </h3>
+                    <h3 class="alluser-edit__title alluser-edit__bug-info">
+                        Назва товару: <%= product.title %>
+                    </h3>
+                </div>
+                <% if(user.admin) { %>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Номер замовлення
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__order" type="text" placeholder="login" value="<%= product.order %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Назва фірми
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__firms" type="text" placeholder="login" value="<%= product.firms %>">
+                </div> 
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Дата
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__datal" type="text" placeholder="login" value="<%= product.datal %>">
+                </div> 
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Назва товару
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__title" type="text" placeholder="login" value="<%= product.title %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Кількість
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__number" type="text" placeholder="login" value="<%= product.number %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Доставка
+                        </h3>
+                    </div>
+                    <% if(product.delivery == null) { %>
+                    <input class="user-edit__input" id="product-edit__delivery" type="text" placeholder="login" value="0">
+                    <% } else { %>
+                    <input class="user-edit__input" id="product-edit__delivery" type="text" placeholder="login" value="<%= product.delivery %>">
+                    <% } %>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Доставка по безналу
+                        </h3>
+                    </div>
+                    <% if(product.deliverynotnal == null) { %>
+                    <input class="user-edit__input" id="product-edit__deliverynotnal" type="text" placeholder="login" value="0">
+                    <% } else { %>
+                    <input class="user-edit__input" id="product-edit__deliverynotnal" type="text" placeholder="login" value="<%= product.deliverynotnal %>">
+                    <% } %>
+                </div>
+                <% } %>
+                <% if(user.admin || user.accountant) { %>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Ціна
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__price" type="text" placeholder="login" value="<%= product.price %>">
+                </div>
+                <% } %>
+                <% if(user.admin) { %>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Оптова ціна
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__opt" type="text" placeholder="login" value="<%= product.opt %>">
+                </div>
+                <% } %>
+                <% if(user.admin || user.accountantnotnal) { %>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Ціна продажу безнал
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__pricenotnal" type="text" placeholder="login" value="<%= product.pricenotnal %>">
+                </div>
+                <% } %>
+                <% if(user.admin) { %>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Дано налічки
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__nal" type="text" placeholder="login" value="<%= product.nal %>">
+                </div>
+                <% } %>
+                <% if(user.accountant) { %>
+                <div class="user-edit__block">
+                    <button id="product-edit__click" class="button user-edit__button">Застосувати зміни</button>
+                </div>
+                <% } %>
+                <% if(user.accountantnotnal) { %>
+                    <div class="user-edit__block">
+                        <button id="product-edit__click-notnal" class="button user-edit__button">Застосувати зміни</button>
+                    </div>
+                <% } %>
+                <% if(user.admin) { %>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Дано не налічки
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="product-edit__notnal" type="text" placeholder="login" value="<%= product.notnal %>">
+                </div>
+                <div class="user-edit__block">
+                    <button id="product-edit__click-admin" class="button user-edit__button">Застосувати зміни</button>
+                </div>
+                <% } %>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<%- include('../layout/footer.ejs')%>

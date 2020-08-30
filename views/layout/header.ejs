@@ -1,0 +1,53 @@
+    <div class="header__top">
+        <div class="container">
+            <div class="header__top--box">
+                <!-- Logo -->
+                <div class="top__box--logo">
+                    <a href="/"><img class="top__box--loho-photo" src="../../../images/logo.png" alt=""></a>
+                </div>
+                <!-- Якщо не авторизований -->
+                <div class="top__box--sign">
+                    <% if(!user.id && !user.login) { %>
+                    <ul class="sign__list">
+                        <li class="sign__item"><a href="/sign_in" class="sign__link">Ввійти</a></li>
+                        <li class="sign__item"><a href="/sign_up" class="sign__link">Реєстрація</a></li>
+                    </ul>
+                    <!-- Якщо авторизований -->
+                    <% } else { %>
+                    <div class="sign__list">
+                      <div class="sign__user">
+                          <div class="sign__user--icon show__table">
+                              <img class="sign__user--photos" src="../../../images/user.jpg" alt="">
+                          </div>
+                          <!-- Меню користувача -->
+                          <div class="sign__menu none">
+                              <div class="sign__menu--point">
+                                  <p class="sign__point--item"><%= user.login %></p>
+                                  <p class="sign__point--item"><a href="/tables/my_tables" class="sign__poin--link">Таблиці</a></p>
+                                  <% if(user.admin == true) { %>
+                                  <p class="sign__point--item"><a href="/allusers" class="sign__poin--link">Всі користувачі</a></p>
+                                  <% } %>
+                                  <p class="sign__point--item"><a href="/api/auth/logout" class="sign__poin--link">Вихід</a></p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Додавання нової головної таблиці -->
+                      <% if(user.admin) { %>
+                      <div class="sign__user sign__table">
+                          <div class="sign__table--icon show__table">
+                              <i class="fas fa-plus sign__user--photo"></i>
+                          </div>
+                          <div class="sign__menu sign__table--menu none">
+                              <div class="sign__menu--point sign__table--point">
+                                  <p class="sign__point--item"><a href="/post/add" class="sign__poin--link">Нова головна таблиця</a></p>
+                              </div>
+                          </div>
+                      </div>
+                      <% } %>
+                  </div>
+                  <% } %>
+  
+                </div>
+            </div>
+        </div>
+    </div>

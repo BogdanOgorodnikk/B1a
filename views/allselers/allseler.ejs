@@ -1,0 +1,359 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="client-product">
+        <div class="container">
+            <div class="client-product__out--top">
+               <div class="client-product__out--line client-allseler__menu">
+                   <div class="client-product__line--info client-product__line--index">
+                       <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№</span>№</h3>
+                   </div>
+                   <div class="client-product__line--info client-product__line--index">
+                       <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span>№ За-ння</h3>
+                   </div>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span>Фірма</h3>
+                   </div>
+                   <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ім'я клієнта</span>Ім'я клієнта</h3>
+                    </div>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дата: </span>Дата</h3>
+                   </div>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Назва товару: </span>Назва товару</h3>
+                   </div>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Оптова: </span>Оптова</h3>
+                   </div>
+                   <% if(user.admin || user.accountant) { %>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу: </span>Ціна продажу</h3>
+                   </div>
+                   <% } %>
+                   <% if(user.admin || user.accountantnotnal) { %>
+                   <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу безнал: </span>Ціна продажу безнал</h3>
+                    </div>  
+                    <% } %>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Кількість: </span>Кількість</h3>
+                   </div>
+                   <% if(user.admin || user.accountant) { %>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума продажу: </span>Сума продажу</h3>
+                    </div>
+                    <% } %>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка (самовивіз): </span>Доставка (самовивіз)</h3>
+                   </div>
+                   <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка по безналу: </span>Доставка по безналу</h3>
+                    </div>
+                    <% if(user.admin) { %>
+                   <div class="client-product__line--info">
+                       <h3 class="client-product__line--text"><span class="client-product__line--responsive">Загальна сума: </span>Загальна сума</h3>
+                   </div>
+                   <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по безнал: </span>Дельта по безнал</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по безналу: </span>Дельта тонни по безналу</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по нал: </span>Дельта по нал</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по налу: </span>Дельта тонни по налу</h3>
+                    </div>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Створив: </span>Створив</h3>
+                    </div>
+                    <% } %>
+                    <% if(user.admin || user.accountantnotnal || user.accountant) { %>
+                    <div class="client-product__line--info ">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Змінити: </span>Змінити</h3>
+                    </div>
+                    <% } %>
+                </div>
+               <% for (var i = 0; i < products.length; i++) { %>
+                <% if(products[i].firms == "") { %>
+                <% continue; } else { %>
+
+                <!--Перший елс якщо без ціни-->
+                <% if(products[i].order != null && products[i].price == 0) { %>
+                    <div class="client-product__out--line car-expect">
+                        <div class="client-product__line--info client-product__line--index">
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                        </div>
+                        <div class="client-product__line--info client-product__line--index">
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ім'я клієнта:</span>
+                         <% for (var j = 0; j < clients.length; j++) { %>
+                             <% if(clients[j].id == products[i].client) { %>
+                             <%= clients[j].headline %>
+                             <% } %>
+                         <% } %>
+                             </h3>
+                         </div>
+                         <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дата: </span> <%=products[i].datal %></h3>
+                         </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Назва товару: </span> <%=products[i].title %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Оптова: </span> <%=products[i].opt %></h3>
+                        </div>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу: </span> <%=products[i].price %></h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin || user.accountantnotnal) { %>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу безнал: </span> <%=products[i].pricenotnal %> </h3>
+                         </div>
+                         <% } %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Кількість: </span> <%=products[i].number %></h3>
+                        </div>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума продажу: </span><%=Math.round(products[i].sumsell) %></h3>
+                        </div>
+                        <% } %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка (самовивіз): </span> <%=products[i].delivery %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка по безналу: </span> <%=products[i].deliverynotnal %></h3>
+                         </div>
+                         <% if(user.admin) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума: </span> <%=Math.round(products[i].debt) %></h3>
+                        </div>
+                         <div class="client-product__line--info">
+                              <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по безнал: </span><%=Math.round(products[i].deltadebt) %></h3>
+                          </div>
+                          <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по безнал: </span><%=Math.round(products[i].deltatonnotnal) %></h3>
+                         </div>
+                         <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по нал: </span><%=Math.round(products[i].deltadebtnal) %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                           <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по нал: </span><%=Math.round(products[i].deltatonnal) %></h3>
+                       </div>
+                         <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Створив: </span> 
+                            <% for(var j = 0; j < users.length; j++) { %>
+                                <% if(products[i].owner == users[j].id) { %>
+                                    <%= users[j].login %>
+                                <% } %>
+                            <% } %>
+                            </h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin || user.accountantnotnal || user.accountant) { %>
+                         <div class="client-product__line--info change">
+                             <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
+                         </div>
+                          <% } %>
+                    </div>
+                <!--Якщо без ціни не налі-->
+                <% } else if(products[i].order != null && products[i].pricenotnal <= 0) { %>
+                    <div class="client-product__out--line car-pricenotnal">
+                        <div class="client-product__line--info client-product__line--index">
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ім'я клієнта:</span>
+                         <% for (var j = 0; j < clients.length; j++) { %>
+                             <% if(clients[j].id == products[i].client) { %>
+                             <%= clients[j].headline %>
+                             <% } %>
+                         <% } %>
+                             </h3>
+                         </div>
+                         <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дата: </span> <%=products[i].datal %></h3>
+                         </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Назва товару: </span> <%=products[i].title %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Оптова: </span> <%=products[i].opt %></h3>
+                        </div>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу: </span> <%=products[i].price %></h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin || user.accountantnotnal) { %>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу безнал: </span> <%=products[i].pricenotnal %> </h3>
+                         </div>
+                         <% } %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Кількість: </span> <%=products[i].number %></h3>
+                        </div>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума продажу: </span><%=Math.round(products[i].sumsell) %></h3>
+                        </div>
+                        <% } %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка (самовивіз): </span> <%=products[i].delivery %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка по безналу: </span> <%=products[i].deliverynotnal %></h3>
+                         </div>
+                         <% if(user.admin) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума: </span> <%=Math.round(products[i].debt) %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по безнал: </span><%=Math.round(products[i].deltadebt) %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                           <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по безнал: </span><%=Math.round(products[i].deltatonnotnal) %></h3>
+                       </div>
+                       <div class="client-product__line--info">
+                          <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по нал: </span><%=Math.round(products[i].deltadebtnal) %></h3>
+                      </div>
+                      <div class="client-product__line--info">
+                         <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по нал: </span><%=Math.round(products[i].deltatonnal) %></h3>
+                     </div>
+                         <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Створив: </span> 
+                            <% for(var j = 0; j < users.length; j++) { %>
+                                <% if(products[i].owner == users[j].id) { %>
+                                    <%= users[j].login %>
+                                <% } %>
+                            <% } %>
+                            </h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin || user.accountantnotnal || user.accountant) { %>
+                         <div class="client-product__line--info change">
+                             <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
+                         </div>
+                          <% } %>
+                     </div>
+                <% } else { %>
+                    <!--УСПЫХ-->
+                    <div class="client-product__out--line car-done">
+                        <div class="client-product__line--info client-product__line--index">
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                        </div>
+                        <div class="client-product__line--info client-product__line--index">
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ім'я клієнта:</span>
+                         <% for (var j = 0; j < clients.length; j++) { %>
+                             <% if(clients[j].id == products[i].client) { %>
+                             <%= clients[j].headline %>
+                             <% } %>
+                         <% } %>
+                             </h3>
+                         </div>
+                         <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дата: </span> <%=products[i].datal %></h3>
+                         </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Назва товару: </span> <%=products[i].title %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Оптова: </span> <%=products[i].opt %></h3>
+                        </div>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу: </span> <%=products[i].price %></h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin || user.accountantnotnal) { %>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Ціна продажу безнал: </span> <%=products[i].pricenotnal %> </h3>
+                         </div>
+                         <% } %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Кількість: </span> <%=products[i].number %></h3>
+                        </div>
+                        <% if(user.admin || user.accountant) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума продажу: </span><%=Math.round(products[i].sumsell) %></h3>
+                        </div>
+                        <% } %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка (самовивіз): </span> <%=products[i].delivery %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Доставка по безналу: </span> <%=products[i].deliverynotnal %></h3>
+                         </div>
+                         <% if(user.admin) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Сума: </span> <%=Math.round(products[i].debt) %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по безнал: </span><%=Math.round(products[i].deltadebt) %></h3>
+                        </div>
+                        <div class="client-product__line--info">
+                           <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по безнал: </span><%=Math.round(products[i].deltatonnotnal) %></h3>
+                       </div>
+                       <div class="client-product__line--info">
+                          <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта по нал: </span><%=Math.round(products[i].deltadebtnal) %></h3>
+                      </div>
+                      <div class="client-product__line--info">
+                         <h3 class="client-product__line--text"><span class="client-product__line--responsive">Дельта тонни по нал: </span><%=Math.round(products[i].deltatonnal) %></h3>
+                     </div>
+                         <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Створив: </span> 
+                            <% for(var j = 0; j < users.length; j++) { %>
+                                <% if(products[i].owner == users[j].id) { %>
+                                    <%= users[j].login %>
+                                <% } %>
+                            <% } %>
+                            </h3>
+                        </div>
+                        <% } %>
+                        <% if(user.admin || user.accountantnotnal || user.accountant) { %>
+                         <div class="client-product__line--info change">
+                             <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
+                         </div>
+                         <% } %>
+                     </div>
+                <% } %>
+                <% } %>
+
+
+
+                <% } %>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<%- include('../layout/footer.ejs')%>

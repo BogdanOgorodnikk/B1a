@@ -1,0 +1,89 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="user-edit">
+        <div class="container">
+            <div class="user-edit__back">
+                <a href="/allusers" class="user-edit__back--link">Повернутися назад</a>
+            </div>
+            <form action="" class="user-edit__form">
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Id користувача
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="user-edit__id" type="text" placeholder="login" value="<%= users.id %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Логін користувача
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="user-edit__login" type="text" placeholder="login" value="<%= users.login %>">
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Заблокувати користувача
+                        </h3>
+                    </div>
+                    <input type="checkbox" id="user-edit__ban" class="user-edit__checkbox" value="<%= users.ban %>" <% if(users.ban) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Роль адміністратора
+                        </h3>
+                    </div>
+                    <input type="checkbox" id="user-edit__admin" class="user-edit__checkbox" value="<%= users.isAdmin %>" <% if(users.isAdmin) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Роль логіста
+                        </h3>
+                    </div>
+                    <input type="checkbox" id="user-edit__logist" class="user-edit__checkbox" value="<%= users.isLogist %>" <% if(users.isLogist) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Роль бухгалтера
+                        </h3>
+                    </div>
+                    <input type="checkbox" id="user-edit__accountant" class="user-edit__checkbox" value="<%= users.isAccountant %>" <% if(users.isAccountant) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Роль бухгалтера без нал
+                        </h3>
+                    </div>
+                    <input type="checkbox" id="user-edit__accountantnotnal" class="user-edit__checkbox" value="<%= users.isAccountantnotnal %>" <% if(users.isAccountantnotnal) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Роль менеджера
+                        </h3>
+                    </div>
+                    <input type="checkbox" id="user-edit__manager" class="user-edit__checkbox" value="<%= users.isManager %>" <% if(users.isManager) { %> checked <% } %>>
+                </div>
+                <div class="user-edit__block">
+                    <button id="user-edit__click" class="button user-edit__button">Застосувати зміни</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<%- include('../layout/footer.ejs')%>
