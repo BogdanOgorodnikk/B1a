@@ -82,6 +82,10 @@ const schema = new Schema(
       type: Number,
       default: 0
     },
+    count: {
+      type: Boolean,
+      default: false
+    },
     client: {
       type: Schema.Types.ObjectId,
       ref: 'Client'

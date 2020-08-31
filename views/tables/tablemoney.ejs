@@ -1,0 +1,22 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="money">
+        <div class="container">
+            <% for(var i = 0; i < users.length; i++) { %>
+                <% if(!users[i].isManager) { %>
+                    <% continue; %>
+                <% } else { %>
+                <div class="money__line">
+                    <a href="moneys/<%= users[i].id %>" class="money__line--text"><%= users[i].login %></a>
+                <% } %>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

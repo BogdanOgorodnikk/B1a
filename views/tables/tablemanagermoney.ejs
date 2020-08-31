@@ -1,0 +1,65 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="money">
+        <div class="container">
+            <h3 class="money-manager__name">Ім'я менеджера: <%= users.login %></h3>
+            <div class="manager-money__autosum">
+                Сумма: <span class="money__autosum--out"></span>
+            </div>
+            <div class="manager-money__box manager-money__head">
+                <div class="manager-money__item manager-money__item--head">
+                    Дата
+                </div>
+                <div class="manager-money__item manager-money__item--head">
+                    Дата створення оплати
+                </div>
+                <div class="manager-money__item manager-money__item--head">
+                    Ім'я клієнта
+                </div>
+                <div class="manager-money__item manager-money__item--head">
+                    Операція
+                </div>
+                <div class="manager-money__item manager-money__item--head">
+                    Сума налічки
+                </div>
+                <div class="manager-money__item manager-money__item--head">
+                    Розраховувати
+                </div>
+            </div>
+            <% for(var i = 0; i < products.length; i++) { %>
+                <% if(products[i].owner == users.id) { %>
+                    <div class="manager-money__box">
+                        <div class="manager-money__item">
+                            <span class="manager-money__item--responsive">Дата: </span><%= products[i].datal %>
+                        </div>
+                        <div class="manager-money__item">
+                            <span class="manager-money__item--responsive">Дата створення: </span><%= moment(products[i].data).format("MM-DD-YYYY") %>
+                        </div>
+                        <div class="manager-money__item">
+                            <% for(var j = 0; j < clients.length; j++) { %>
+                                <% if(clients[j].id == products[i].client) { %>
+                                    <span class="manager-money__item--responsive">Ім'я клієнта: </span><%= clients[j].headline %>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <div class="manager-money__item">
+                            <span class="manager-money__item--responsive">Операція: </span><%= products[i].title %>
+                        </div>
+                        <div class="manager-money__item">
+                            <span class="manager-money__item--responsive">Сума налічки: </span><span class="manager-money__number"><%= products[i].nal %></span>
+                        </div>
+                        <div class="manager-money__item">
+                            <input class="manager-monet__check" type="checkbox" value="false">
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

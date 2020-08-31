@@ -5,6 +5,8 @@ for(let i = 0; i < userIcon.length; i++) {
   }
 }
 
+
+
 $(document).ready(function(){
   $(".btn-nav").on("click", function() {
       var target = $(this).data("target");
@@ -18,6 +20,13 @@ $(document).ready(function(){
     }
   })
   $('.pith__check').on('click', function() {
+    if(this.checked) {
+      $(this).val(true)
+    } else {
+      $(this).val(false)
+    }
+  })
+  $('.manager-monet__check').on('click', function() {
     if(this.checked) {
       $(this).val(true)
     } else {
@@ -39,6 +48,60 @@ $(document).ready(function(){
     }
   });
   // $("body").on("contextmenu", false);
+
+
+
+
+  var deltaNotNal = document.querySelectorAll(".delta-notnal");
+  var deltaNotNalOut = document.querySelectorAll(".delta-notnal__out"); 
+  var productNumber = document.querySelectorAll(".products-number");
+  var deltaNal = document.querySelectorAll(".delta-nal");
+  var deltaNalOut = document.querySelectorAll(".delta-nal__out"); 
+
+
+  var outDeltaNotNal = [];
+  var outDeltaNal = [];
+
+  for(var i = 0; i < deltaNotNal.length; i++) {
+    outDeltaNotNal[i] = Math.round(+deltaNotNal[i].innerHTML / +productNumber[i].innerHTML);
+  }
+
+  for(var i = 0; i < deltaNotNalOut.length; i++) {
+    deltaNotNalOut[i].innerHTML = outDeltaNotNal[i];
+  }
+
+  for(var i = 0; i < deltaNal.length; i++) {
+    outDeltaNal[i] = Math.round(+deltaNal[i].innerHTML / +productNumber[i].innerHTML);
+  }
+
+  for(var i = 0; i < deltaNalOut.length; i++) {
+    deltaNalOut[i].innerHTML = outDeltaNal[i];
+  }
+
+  var checkMoneySum = document.querySelectorAll('.manager-monet__check');
+  var autosum = document.querySelector('.money__autosum--out');
+  var arr = [];
+  for(var i = 0; i < checkMoneySum.length; i++) {
+    checkMoneySum[i].onclick = function() {
+      var mon = +this.parentElement.previousElementSibling.children[1].innerHTML;
+      var sum = 0;
+      if(this.value == "true") {
+        arr.push(mon);
+        for(var j = 0; j < arr.length; j++) {
+          sum += arr[j];
+        }
+      } else {
+        arr.pop(mon);
+        for(var j = 0; j < arr.length; j++) {
+          sum += arr[j];
+        }
+      }
+      autosum.innerHTML = sum;
+    }
+  }
+
+
+
   setInterval(function() {
     window.location.href = '/api/auth/logout';
   }, 600000);

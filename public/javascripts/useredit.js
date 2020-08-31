@@ -9,6 +9,7 @@ $(document).ready(function(){
         var isAccountantnotnal = $('#user-edit__accountantnotnal').val();
         var isManager = $('#user-edit__manager').val();
         var ban = $('#user-edit__ban').val();
-        $(location).attr('href', `${id}/${login}/${isAdmin}/${isLogist}/${isAccountant}/${isAccountantnotnal}/${isManager}/${ban}`);
+        var password = $('#user-edit__password').val();
+        $(location).attr('href', `${id}/${login}/${isAdmin}/${isLogist}/${isAccountant}/${isAccountantnotnal}/${isManager}/${ban}/${password}`);
     });
 });

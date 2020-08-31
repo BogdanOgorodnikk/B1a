@@ -1,32 +1,9 @@
-@media screen and (max-width: 1150px) {
-    .about__box {
-        display: block;
-        text-align: center;
-    }
-    .about__item--describe {
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-    }
-    .about__item--photo {
-        margin-bottom: 20px;
+@media screen and (max-width: 1428px) {
+    .f-menu {
+        width: 98.5%;
     }
 }
-@media screen and (max-width: 990px) {
-    .create-client__form--input {
-        width: 100%;
-    }
-    .create-client__form--submit {
-        margin-left: 0px;
-        margin-top: 10px;
-    }
-}
-@media screen and (max-width: 840px) {
-    .new-table__form--input {
-        width: 100%;
-    }
-}
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1200px) {
     .client-product__headline {
         display: none;
     }
@@ -41,24 +18,44 @@
     .client-product__line--info {
         width: 100%;
     }
-    .pith-table__box {
+    .client-product__line--text {
+        text-align: left;
+    }
+    .f-menu, .client-product__menu {
+        display: none;
+    }
+    .client-product__line--index {
+        max-width: 100%;
+    }
+    .head-none, .client-allseler__menu {
+        display: none;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .alluser__box {
         display: block;
-    } 
+        margin-bottom: 15px;
+    }
+    .alluser__box--none {
+        display: none;
+    }
+    .alluser__item {
+        width: 100%;
+    }
+    .alluser__item--span  {
+        display: inline-block;
+    }
 }
 @media screen and (max-width: 600px) {
     .about__item--photo {
         display: none;
     }
-}
-@media screen and (max-width: 550px) {
     .client-info__box {
         display: block;
     }
     .client-info__input {
         width: 100%;
     }
-}
-@media screen and (max-width: 500px) {
     .header__top--box {
         display: block;
         text-align: center;
@@ -93,5 +90,24 @@
     .table__point--out-respons {
         display: inline;
         font-weight: 700;
+    }
+}
+@media screen and (max-width: 500px) {
+    .my-table__box {
+        display: block;
+        margin-bottom: 20px;
+    }
+    .user-edit__block {
+        display: block;
+    }
+    .borg__box {
+        display: block;
+        margin-bottom: 20px;
+    }
+    .borg__box--head {
+        display: none;
+    }
+    .borg__item--span {
+        display: inline-block;
     }
 }

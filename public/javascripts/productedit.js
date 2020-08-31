@@ -60,5 +60,15 @@ $(document).ready(function(){
         } else {
             $(location).attr('href', `accountantnotnal/${id}/${pricenotnal}/${opt}/${deliverynotnal}/${number}/${price}/${delivery}/${deltadebtnal}/${deltadebt}`);
         }
+
     });
+
+    var checkautosum = document.querySelectorAll('.allseler__check');
+    for(var i = 0; i < checkautosum.length; i++) {
+      checkautosum[i].onclick = function() {
+        var id = this.parentElement.id;
+        var count = this.value;
+        $(location).attr('href', `allselers/allselersum/${id}/${count}`)
+      }
+    }
 });

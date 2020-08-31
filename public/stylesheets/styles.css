@@ -572,16 +572,15 @@ body {
 
 .client-product__line--info {
   border: 1px solid #262626;
-  width: 100%;
-  min-height: 60px; }
+  width: 100%; }
 
 .client-product__line--text {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   text-align: center;
-  margin-top: 20px;
   color: #262626; }
+  
 .client-info__client-name {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
@@ -831,6 +830,7 @@ body {
   }
   .tablemanager__block {
     margin-top: 15px;
+    margin-bottom: 30px;
   }
   .my-table__info {
     font-family: 'Roboto', sans-serif;
@@ -896,8 +896,7 @@ body {
     margin-top: 10px;
   }
 .pith-table__debt {
-  margin-top: 0px;
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 .pith__table--bottom {
   margin-bottom: 0px;
@@ -919,6 +918,115 @@ body {
 }
 .borg__item--link:hover {
   color: #fff;
+}
+.alluser__item--span, .borg__item--span {
+  display: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #131313;
+}
+.borg__item--general {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #131313;
+}
+.money {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.money__line {
+  border: 1px solid #131313;
+}
+.money__line--text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #131313;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+.money__line--text:hover {
+  color: #fff;
+}
+.manager-money__box {
+  display: flex;
+}
+.manager-money__item {
+  border: 1px solid #131313;
+  width: 100%;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+}
+.manager-money__item--head {
+  font-weight: 700;
+  text-align: center;
+}
+.money-manager__name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #131313;
+  margin-bottom: 15px;
+}
+.manager-money__item--responsive {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #131313;
+  display: none;
+}
+.manager-money__autosum {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #131313;
+  border: 1px solid #131313;
+  width: 100%;
+}
+.allseler-autosum {
+  margin-top: 20px;
+}
+.allseler-autosum__line {
+  border: 1px solid #131313;
+  width: 100%;
+  padding: 5px 0px;
+}
+.allseler-autosum__out {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #131313;
+}
+.pith-table {
+  margin-bottom: 30px;
+}
+.pith-table__box {
+  display: flex;
+}
+.pith-table__item {
+  border: 1px solid #131313;
+  width: 100%;
+}
+.pith-table__text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+  text-align: center;
+  padding: 10px;
+}
+.pith-table__text--head {
+  font-weight: 700;
+  font-size: 16px;
+}
+.pith-table__text--responsive {
+  display: none;
 }
 .none {
   display: none; }

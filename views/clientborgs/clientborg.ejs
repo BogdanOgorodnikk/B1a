@@ -9,41 +9,41 @@
 <main class="main">
     <section class="borg">
         <div class="container">
-            <div class="borg__title">
-                <h3 class="borg__title--name">
+            <div class="borg__box borg__box--head">
+                <div class="borg__item borg__item--general">
                     Ім'я клієнта
-                </h3>
-                <h3 class="borg__title--name">
+                </div>
+                <div class="borg__item borg__item--general">
                     Борг клієнта
-                </h3>
-                <h3 class="borg__title--name">
+                </div>
+                <div class="borg__item borg__item--general">
                     Сума залишків клієнта
-                </h3>
-                <h3 class="borg__title--name">
+                </div>
+                <div class="borg__item borg__item--general">
                     Сума проданого товару
-                </h3>
+                </div>
             </div>
             <% for(var i = 0; i < clients.length; i++) { %>
             <div class="borg__box">
                 <div class="borg__item">
-                    <a class="borg__item--link" href="products/<%= clients[i].url %>"><%= clients[i].headline %></a>
+                    <a class="borg__item--link" href="products/<%= clients[i].url %>"><span class="borg__item--span">Ім'я клієнта: </span><%= clients[i].headline %></a>
                 </div>
                 <% for(var j = 0; j < proos.length; j++) { %>
                 <% if(proos[j]["_id"] == clients[i].id) { %>
                 <div class="borg__item">
-                    <%=Math.round(proos[j]["salary"])%>
+                    <span class="borg__item--span">Борг клієнта: </span><span class="borg__item--borg-sum"><%=Math.round(proos[j]["salary"])%></span>
                 </div>
                 <div class="borg__item">
                     <% for (var k = 0; k < sumpith.length; k++) { %>
                         <% if(sumpith[k]["_id"] == clients[i].id) { %>
-                            <%=Math.round(sumpith[k]["salary"]) %>
+                            <span class="borg__item--span">Сума залишків клієнта: </span><span class="borg__item--client-sum"><%=Math.round(sumpith[k]["salary"]) %></span>
                         <% } %>
                      <% } %>  
                 </div>
                 <div class="borg__item">
                     <% for (var k = 0; k < sumpith.length; k++) { %>
                         <% if(sumpith[k]["_id"] == clients[i].id) { %>
-                            <%= Math.round(proos[j]["salary"] - sumpith[k]["salary"]) %>
+                            <span class="borg__item--span">Сума проданого товару: </span><span class="borg__item--sell-sum"><%= Math.round(proos[j]["salary"] - sumpith[k]["salary"]) %></span>
                         <% } %>
                      <% } %>      
                 </div>
@@ -51,6 +51,21 @@
                 <% } %>
             </div>
             <% } %>
+            <div class="client-product__line--info-debt">
+                <h3 class="client-product__line--text client-product__line--gen">Сума боргів: 
+                    <span id="client-product__line--borg-out"></span>
+                </h3>
+            </div>
+            <div class="client-product__line--info-debt">
+                <h3 class="client-product__line--text client-product__line--gen">Сума залишків клієнта: 
+                    <span id="client-product__line--client-out"></span>
+                </h3>
+            </div>
+            <div class="client-product__line--info-debt">
+                <h3 class="client-product__line--text client-product__line--gen">Сума проданого товару: 
+                    <span id="client-product__line--sell-out"></span>
+                </h3>
+            </div>
         </div>
     </section>
 </main>

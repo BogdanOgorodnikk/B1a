@@ -6,6 +6,16 @@
     <title>B1</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../stylesheets/styles.css">
-    <link rel="stylesheet" href="../../../stylesheets/responsive.css">
+    <% if(user.admin) { %>
+      <link rel="stylesheet" href="../../../stylesheets/adminresponsive.css">
+  <% } else if(user.accountant) { %>
+    <link rel="stylesheet" href="../../../stylesheets/accountantresponsive.css">
+  <% } else if(user.accountantnotnal) { %>
+    <link rel="stylesheet" href="../../../stylesheets/accountantnotnalresponsive.css">
+  <% } else if(user.manager) { %>
+    <link rel="stylesheet" href="../../../stylesheets/managerresponsive.css">
+  <% } else { %>
+  <link rel="stylesheet" href="../../../stylesheets/responsive.css">
+  <% } %>
   </head>
   <body class="body"> 

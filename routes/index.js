@@ -10,6 +10,7 @@ const clientborg = require('./clientborg');
 const allseler = require('./allseler');
 const clientpith = require('./clientpith');
 const pithedit = require('./pithedit');
+const money = require('./money');
 
 
 module.exports = {
@@ -24,5 +25,6 @@ module.exports = {
     clientborg,
     allseler,
     clientpith,
-    pithedit
+    pithedit,
+    money
 };

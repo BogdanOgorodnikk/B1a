@@ -48,6 +48,14 @@
                         Назва фірми: <%= product.firms %>
                     </h3>
                     <h3 class="alluser-edit__title alluser-edit__bug-info">
+                        Ім'я клієнта: 
+                        <% for(var i = 0; i < clients.length; i++) { %>
+                            <% if(product.client == clients[i].id) { %>
+                                <%= clients[i].headline %>
+                            <% } %>
+                        <% } %>
+                    </h3>
+                    <h3 class="alluser-edit__title alluser-edit__bug-info">
                         Назва товару: <%= product.title %>
                     </h3>
                 </div>

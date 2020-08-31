@@ -94,6 +94,7 @@ app.use('/allselers', routes.allseler);
 app.use('/allselers', routes.allseler);
 app.use('/clientpiths', routes.clientpith);
 app.use('/pithsedit', routes.pithedit);
+app.use('/moneys', routes.money);
 
 
 // catch 404 and forward to error handler

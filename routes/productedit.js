@@ -44,6 +44,8 @@ const product = require('../models/product');
       }   
     }
   });
+
+
   router.get('/accountant/:id/:price/:delivery/:number/:pricenotnal/:deliverynotnal/:opt/:deltadebtnal/:deltadebt', (req, res, next) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;

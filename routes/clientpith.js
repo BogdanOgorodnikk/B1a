@@ -28,7 +28,8 @@ router.get('/:id', (req, res, next) => {
                 {  
                   $group :{ _id: "$client",
                   salary: {
-                    $sum: { $cond: {if: {$eq: ["$math", true]}, then: {$multiply: [ "$price", "$number" ]}, else: 0} }}
+                    $sum: { $cond: {if: {$eq: ["$math", true]}, then: {$multiply: [ "$price", "$number" ]}, else: 0} }
+                  }
                   }
                 }
                 ]).then(pross => {
@@ -40,6 +41,7 @@ router.get('/:id', (req, res, next) => {
               id: userId,
               login: userLogin,
               admin: useradmin,
+              manager: usermanager
             }
           }); 
                 })

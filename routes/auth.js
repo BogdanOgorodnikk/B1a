@@ -53,6 +53,7 @@ router.post('/register', (req, res) => {
                     req.session.userAccountantnotnal = user.isAccountantnotnal;
                     req.session.userManager = user.isManager;
                     req.session.userBan = user.ban;
+                    req.session.userPassword = user.password;
                     res.json({
                     ok: true
                   });
@@ -85,7 +86,7 @@ router.post('/login', (req, res) => {
     res.json({
         ok: false,
         error: 'Всі поля повинні бути заповнені',
-        fields: ['login', 'password', 'passwordConfirm']
+        fields: ['login', 'password']
       });
   }  else {
     models.User.findOne({
@@ -114,6 +115,7 @@ router.post('/login', (req, res) => {
             req.session.userAccountantnotnal = user.isAccountantnotnal;
             req.session.userManager = user.isManager;
             req.session.userBan = user.ban;
+            req.session.userPassword = user.password;
             res.json({
               ok: true
             });

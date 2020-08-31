@@ -6,7 +6,17 @@
     <title>B1</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../stylesheets/styles.css">
+    <% if(user.admin) { %>
+        <link rel="stylesheet" href="../../../stylesheets/adminresponsive.css">
+    <% } else if(user.accountant) { %>
+      <link rel="stylesheet" href="../../../stylesheets/accountantresponsive.css">
+    <% } else if(user.accountantnotnal) { %>
+        <link rel="stylesheet" href="../../../stylesheets/accountantnotnalresponsive.css">
+    <% } else if(user.manager) { %>
+        <link rel="stylesheet" href="../../../stylesheets/managerresponsive.css">
+    <% } else { %>
     <link rel="stylesheet" href="../../../stylesheets/responsive.css">
+    <% } %>
   </head>
   <body>
 <header class="header">
@@ -80,6 +90,7 @@
                     <li class="nav__item"><a href="/post/add" class="nav__link">Створити місто</a></li>
                     <li class="nav__item"><a href="/allusers" class="nav__link">Всі користувачі</a></li>
                     <li class="nav__item"><a href="/clientborgs" class="nav__link">Борги клієнтів</a></li>
+                    <li class="nav__item"><a href="/moneys" class="nav__link">Оплати</a></li>
                     <% } %>
                     <% if(user.admin || user.accountantnotnal || user.accountant) { %>
                     <li class="nav__item"><a href="/allselers" class="nav__link">Всі продажі</a></li>
@@ -161,8 +172,8 @@
                     </div>
                     <% } %>
                     <% if(user.admin || user.logist || user.accountantnotnal || user.accountant) { %>
-                    <div class="client-product__line--info">
-                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Фірма: </span>Фірма</h3>
+                    <div class="client-product__line--info client-product__firm">
+                        <h3 class="client-product__line--text client-product__line--head client-product__firm"><span class="client-product__line--responsive">Фірма: </span>Фірма</h3>
                     </div>
                     <% } %>
                     <% if(user.admin || user.logist || user.manager || user.accountant || user.accountantnotnal) { %>
@@ -241,7 +252,7 @@
                             <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Дельта по нал: </span>Дельта по нал</h3>
                         </div>
                         <div class="client-product__line--info">
-                            <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Дельта тонни по налу: </span>Дельта тонни по налу</h3>
+                            <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Дельта тони по налу: </span>Дельта тони по налу</h3>
                         </div>
                         <div class="client-product__line--info">
                             <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Створив: </span>Створив</h3>
@@ -256,9 +267,8 @@
 
 
                  <!--ПОЧАТОК ОСНОВИ ТАБЛИЦІ-->
-                <% for (var i = 0; i < products.length; i++) { %>
+                <% for (var i = products.length-1; i >= 0; i--) { %>
 
-                
                 <% if(user.accountantnotnal && products[i].order == null && products[i].nal > 0) { %>
                     <% continue; } else if(user.logist && products[i].order == null) { %> 
                     <% continue; } else { %>
@@ -749,7 +759,7 @@
                  <% if(user.admin || user.manager || user.accountant ) { %>
                  <div class="client-product__out--bottom">
                     <div class="client-product__line--info-debt">
-                        <h3 class="client-product__line--text client-product__line--gen">Загальний борг: 
+                        <h3 class="client-product__debt client-product__line--gen">Загальний борг: 
                             <% for (var i = 0; i < prosum.length; i++) { %>
                                 <% if(prosum[i]["_id"] == client.id) { %>
                              <span class="client-product__line--debt"><%=Math.round(prosum[i]["salary"])%></span>
@@ -758,7 +768,7 @@
                         </h3>
                     </div>
                     <div class="client-product__line--info-debt">
-                        <h3 class="client-product__line--text client-product__line--gen">Сума залишків: 
+                        <h3 class="client-product__debt client-product__line--gen">Сума залишків: 
                             <% for (var i = 0; i < sumpith.length; i++) { %>
                                 <% if(sumpith[i]["_id"] == client.id) { %>
                                     <span class="client-product__line--debt"><%=Math.round(sumpith[i]["salary"])%></span>
@@ -767,7 +777,7 @@
                         </h3>
                     </div>
                     <div class="client-product__line--info-debt">
-                        <h3 class="client-product__line--text client-product__line--gen">Сума проданого товару: 
+                        <h3 class="client-product__debt client-product__line--gen">Сума проданого товару: 
                              <span class="client-product__line--debt">
                                 <% for (var i = 0; i < prosum.length; i++) { %>
                                     <% if(prosum[i]["_id"] == client.id) { %>

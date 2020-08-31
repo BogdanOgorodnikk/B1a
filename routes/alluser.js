@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const bcrypt = require('bcrypt-nodejs');
 const models = require('../models');
 const user = require('../models/user');
 
@@ -59,7 +59,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 
-router.get('/:id/:login/:isAdmin/:isLogist/:isAccountant/:isAccountantnotnal/:isManager/:ban', (req, res, next) => {
+router.get('/:id/:login/:isAdmin/:isLogist/:isAccountant/:isAccountantnotnal/:isManager/:ban/:password', (req, res, next) => {
   const userId = req.session.userId;
   const userLogin = req.session.userLogin;
   const useradmin = req.session.userAdmin;
@@ -71,6 +71,7 @@ router.get('/:id/:login/:isAdmin/:isLogist/:isAccountant/:isAccountantnotnal/:is
   const isAccountantnotnal = req.params.isAccountantnotnal.trim().replace(/ +(?= )/g, '');
   const isManager = req.params.isManager.trim().replace(/ +(?= )/g, '');
   const ban = req.params.ban.trim().replace(/ +(?= )/g, '');
+  const password = req.params.password.trim().replace(/ +(?= )/g, '');
 
 
   
@@ -82,14 +83,16 @@ router.get('/:id/:login/:isAdmin/:isLogist/:isAccountant/:isAccountantnotnal/:is
       err.status = 404;
       next(err);
     } else {
-      models.User.findByIdAndUpdate(id, {
+      bcrypt.hash(password, null, null, (err, hash) => { 
+       models.User.findByIdAndUpdate(id, {
         login: login, 
         isAdmin: isAdmin, 
         isLogist: isLogist, 
         isAccountant: isAccountant,
         isAccountantnotnal: isAccountantnotnal, 
         isManager: isManager,
-        ban: ban
+        ban: ban,
+        password: hash
         }, {new: true}
       )
       .then(users => {
@@ -102,7 +105,9 @@ router.get('/:id/:login/:isAdmin/:isLogist/:isAccountant/:isAccountantnotnal/:is
           }
         });
         res.redirect('back');
+      }) 
       })
+      
     }   
   }
 });
