@@ -47,8 +47,7 @@ $(document).ready(function(){
       $('.client-allseler__menu').removeClass("f-menu");
     }
   });
-  // $("body").on("contextmenu", false);
-
+  $("body").on("contextmenu", false);
 
 
 

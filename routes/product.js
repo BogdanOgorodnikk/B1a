@@ -16,7 +16,9 @@ const models = require('../models');
     const useraccountantnotnal = req.session.userAccountantnotnal;
     const usermanager = req.session.userManager;
 
-    if (!url) {
+    if(!userId || !userLogin || !useradmin && !userlogist && !useraccountant && !useraccountantnotnal && !usermanager) {
+      res.redirect('/');
+    } else if (!url) {
       const err = new Error('Not Found');
       err.status = 404;
       next(err);
