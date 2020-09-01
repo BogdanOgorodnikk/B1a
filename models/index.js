@@ -2,7 +2,7 @@ const Post = require('./post');
 const User = require('./user');
 const Client = require('./client');
 const Product = require('./product');
-const Pith = require('./Pith');
+const Pith = require('./pith');
 
 module.exports = {
   Post,
