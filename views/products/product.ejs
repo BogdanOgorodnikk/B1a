@@ -161,6 +161,43 @@
     </section>
     <section class="client-product">
          <div class="container">
+            <% if(user.admin || user.manager || user.accountant ) { %>
+                <div class="client-product__out--bottom client__debts--top">
+                   <div class="client-product__line--info-debt">
+                       <h3 class="client-product__debt client-product__line--gen">Загальний борг: 
+                           <% for (var i = 0; i < prosum.length; i++) { %>
+                               <% if(prosum[i]["_id"] == client.id) { %>
+                            <span class="client-product__line--debt"><%=Math.round(prosum[i]["salary"])%></span>
+                            <% } %>
+                            <% } %>
+                       </h3>
+                   </div>
+                   <div class="client-product__line--info-debt">
+                       <h3 class="client-product__debt client-product__line--gen">Сума залишків: 
+                           <% for (var i = 0; i < sumpith.length; i++) { %>
+                               <% if(sumpith[i]["_id"] == client.id) { %>
+                                   <span class="client-product__line--debt"><%=Math.round(sumpith[i]["salary"])%></span>
+                               <% } %>
+                           <% } %>
+                       </h3>
+                   </div>
+                   <div class="client-product__line--info-debt">
+                       <h3 class="client-product__debt client-product__line--gen">Сума проданого товару: 
+                            <span class="client-product__line--debt">
+                               <% for (var i = 0; i < prosum.length; i++) { %>
+                                   <% if(prosum[i]["_id"] == client.id) { %>
+                                       <% for (var j = 0; j < sumpith.length; j++) { %>
+                                           <% if(sumpith[j]["_id"] == client.id) { %>
+                                               <%= Math.round(prosum[i]["salary"] - sumpith[j]["salary"]) %>
+                                           <% } %>
+                                       <% } %>
+                                   <% } %>
+                               <% } %>
+                            </span>
+                       </h3>
+                   </div>
+                </div>
+                <% } %>
              <div class="client-product__out--top">
                 <div class="client-product__out--line client-product__menu">
                     <div class="client-product__line--info  client-product__line--index">
@@ -755,43 +792,6 @@
 
 
 
-                 <% } %>
-                 <% if(user.admin || user.manager || user.accountant ) { %>
-                 <div class="client-product__out--bottom">
-                    <div class="client-product__line--info-debt">
-                        <h3 class="client-product__debt client-product__line--gen">Загальний борг: 
-                            <% for (var i = 0; i < prosum.length; i++) { %>
-                                <% if(prosum[i]["_id"] == client.id) { %>
-                             <span class="client-product__line--debt"><%=Math.round(prosum[i]["salary"])%></span>
-                             <% } %>
-                             <% } %>
-                        </h3>
-                    </div>
-                    <div class="client-product__line--info-debt">
-                        <h3 class="client-product__debt client-product__line--gen">Сума залишків: 
-                            <% for (var i = 0; i < sumpith.length; i++) { %>
-                                <% if(sumpith[i]["_id"] == client.id) { %>
-                                    <span class="client-product__line--debt"><%=Math.round(sumpith[i]["salary"])%></span>
-                                <% } %>
-                            <% } %>
-                        </h3>
-                    </div>
-                    <div class="client-product__line--info-debt">
-                        <h3 class="client-product__debt client-product__line--gen">Сума проданого товару: 
-                             <span class="client-product__line--debt">
-                                <% for (var i = 0; i < prosum.length; i++) { %>
-                                    <% if(prosum[i]["_id"] == client.id) { %>
-                                        <% for (var j = 0; j < sumpith.length; j++) { %>
-                                            <% if(sumpith[j]["_id"] == client.id) { %>
-                                                <%= Math.round(prosum[i]["salary"] - sumpith[j]["salary"]) %>
-                                            <% } %>
-                                        <% } %>
-                                    <% } %>
-                                <% } %>
-                             </span>
-                        </h3>
-                    </div>
-                 </div>
                  <% } %>
              </div>
          </div>
