@@ -17,7 +17,7 @@
                     </div>
                     <div class="alluser__item">
                         <h3 class="alluser__item--text">
-                            Заблокувати користувача
+                            Користувач заблокований
                         </h3>
                     </div>
                     <div class="alluser__item">
@@ -60,7 +60,7 @@
                             </h3>
                         </div>
                         <div class="alluser__item">
-                            <h3 class="alluser__item--text">
+                            <h3 class="alluser__item--text <% if(users[i].ban == true) { %> done <% } else { %> car-done <% } %>">
                                 <span class="alluser__item--span">Заблокувати користувача: </span>
                                 <% if(users[i].ban == true) { %>
                                     Так
@@ -70,7 +70,7 @@
                             </h3>
                         </div>
                         <div class="alluser__item">
-                            <h3 class="alluser__item--text">
+                            <h3 class="alluser__item--text <% if(users[i].isAdmin == true) { %> done <% } else { %> car-done <% } %>">
                                 <span class="alluser__item--span">Роль адміністратора: </span>
                                 <% if(users[i].isAdmin == true) { %>
                                     Так
@@ -80,7 +80,7 @@
                             </h3>
                         </div>
                         <div class="alluser__item">
-                            <h3 class="alluser__item--text">
+                            <h3 class="alluser__item--text <% if(users[i].isLogist == true) { %> done <% } else { %> car-done <% } %>">
                                 <span class="alluser__item--span">Роль логіста: </span>
                                 <% if(users[i].isLogist == true) { %>
                                     Так
@@ -90,7 +90,7 @@
                             </h3>
                         </div>
                         <div class="alluser__item">
-                            <h3 class="alluser__item--text">
+                            <h3 class="alluser__item--text <% if(users[i].isAccountant == true) { %> done <% } else { %> car-done <% } %>">
                                 <span class="alluser__item--span">Роль бухгалтера: </span>
                                 <% if(users[i].isAccountant == true) { %>
                                     Так
@@ -100,7 +100,7 @@
                             </h3>
                         </div>
                         <div class="alluser__item">
-                            <h3 class="alluser__item--text">
+                            <h3 class="alluser__item--text <% if(users[i].isAccountantnotnal == true) { %> done <% } else { %> car-done <% } %>">
                                 <span class="alluser__item--span">Роль бухгалтера безнал: </span>
                                 <% if(users[i].isAccountantnotnal == true) { %>
                                     Так
@@ -110,7 +110,7 @@
                             </h3>
                         </div>
                         <div class="alluser__item">
-                            <h3 class="alluser__item--text">
+                            <h3 class="alluser__item--text <% if(users[i].isManager == true) { %> done <% } else { %> car-done <% } %>">
                                 <span class="alluser__item--span">Роль менеджера: </span>
                                 <% if(users[i].isManager == true) { %>
                                     Так

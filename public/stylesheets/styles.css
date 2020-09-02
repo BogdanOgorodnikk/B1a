@@ -1031,5 +1031,28 @@ body {
 .client__debts--top {
   margin-top: 30px;
 }
+.client-borg__text {
+  max-width: 100%;
+  font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #262626;
+}
+.alluser__change-pass {
+  display: block;
+  background: #131313;
+  padding: 12px;
+  text-decoration: none;
+  color: #fff;
+}
+.alluser-edit__title--change {
+  font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #262626;
+}
+.change-pass__login {
+  font-weight: 700;
+}
 .none {
   display: none; }

@@ -9,7 +9,14 @@ $(document).ready(function(){
         var isAccountantnotnal = $('#user-edit__accountantnotnal').val();
         var isManager = $('#user-edit__manager').val();
         var ban = $('#user-edit__ban').val();
+        $(location).attr('href', `${id}/${login}/${isAdmin}/${isLogist}/${isAccountant}/${isAccountantnotnal}/${isManager}/${ban}`);
+    });
+
+
+    $('#user-edit__click-pass').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.alluser-edit__title').attr('id');
         var password = $('#user-edit__password').val();
-        $(location).attr('href', `${id}/${login}/${isAdmin}/${isLogist}/${isAccountant}/${isAccountantnotnal}/${isManager}/${ban}/${password}`);
+        $(location).attr('href', `${id}/${password}`);
     });
 });

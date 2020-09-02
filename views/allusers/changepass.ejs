@@ -1,0 +1,40 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="user-edit">
+        <div class="container">
+            <div class="user-edit__back">
+                <a href="/allusers/<%= users.id %>" class="user-edit__back--link">Повернутися назад</a>
+            </div>
+            <form action="" class="user-edit__form">
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title--change">
+                            Логін користувача: <span class="change-pass__login"><%= users.login %></span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title" id="<%= users.id %>">
+                            Введіть новий пароль
+                        </h3>
+                    </div>
+                    <input class="user-edit__input" id="user-edit__password" type="text" placeholder="Пароль" value="<%= users.password %>">
+                </div>
+                <div class="user-edit__block">
+                    <button id="user-edit__click-pass" class="button user-edit__button">Застосувати зміни</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<%- include('../layout/footer.ejs')%>
