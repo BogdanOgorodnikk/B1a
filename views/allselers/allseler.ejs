@@ -102,15 +102,14 @@
                     </div>
                     <% } %>
                 </div>
-               <% for (var i = products.length-1; i >= 0; i--) { %>
+               <% for (var i = products.length-1, inex = 0; i >= 0; i--) { %>
                 <% if(products[i].firms == "") { %>
                 <% continue; } else { %>
-
                 <!--Перший елс якщо без ціни-->
                 <% if(products[i].order != null && products[i].price == 0) { %>
                     <div class="client-product__out--line car-expect">
                         <div class="client-product__line--info client-product__line--index allseler-width">
-                            <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                            <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№: </span> <%=inex++ %></h3>
                         </div>
                         <div class="client-product__line--info client-product__line--index allseler-width">
                             <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
@@ -205,7 +204,7 @@
                 <% } else if(products[i].order != null && products[i].pricenotnal <= 0) { %>
                     <div class="client-product__out--line car-pricenotnal">
                         <div class="client-product__line--info client-product__line--index allseler-width">
-                            <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                            <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№: </span> <%=inex++ %></h3>
                         </div>
                         <div class="client-product__line--info client-product__line--index allseler-width">
                             <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
@@ -300,7 +299,7 @@
                     <!--УСПЫХ-->
                     <div class="client-product__out--line car-done">
                         <div class="client-product__line--info client-product__line--index allseler-width">
-                            <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                            <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№: </span> <%=inex++ %></h3>
                         </div>
                         <div class="client-product__line--info client-product__line--index allseler-width">
                             <h3 class="client-product__line--text client-product__line--index allseler-width"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>

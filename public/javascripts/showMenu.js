@@ -100,7 +100,6 @@ $(document).ready(function(){
   }
 
 
-
   setInterval(function() {
     window.location.href = '/api/auth/logout';
   }, 600000);

@@ -12,8 +12,9 @@ const product = require('../models/product');
     const useradmin = req.session.userAdmin;
     const useraccountantnotnal = req.session.userAccountantnotnal;
     const useraccountant = req.session.userAccountant;
+    const userlogist = req.session.userLogist;
     
-    if(!userId || !userLogin || !useradmin && !useraccountantnotnal && !useraccountant) {
+    if(!userId || !userLogin || !useradmin && !useraccountantnotnal && !useraccountant && !userlogist) {
       res.redirect('/');
     } else {
         models.Client.find(
@@ -48,7 +49,8 @@ const product = require('../models/product');
                               login: userLogin,
                               admin: useradmin,
                               accountantnotnal: useraccountantnotnal,
-                              accountant: useraccountant
+                              accountant: useraccountant,
+                              logist: userlogist
                             }
                           });
                         })

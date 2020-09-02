@@ -92,7 +92,7 @@
                     <li class="nav__item"><a href="/clientborgs" class="nav__link">Борги клієнтів</a></li>
                     <li class="nav__item"><a href="/moneys" class="nav__link">Оплати</a></li>
                     <% } %>
-                    <% if(user.admin || user.accountantnotnal || user.accountant) { %>
+                    <% if(user.admin || user.accountantnotnal || user.accountant || user.logist) { %>
                     <li class="nav__item"><a href="/allselers" class="nav__link">Всі продажі</a></li>
                     <% } %>
                 </ul>
@@ -304,7 +304,7 @@
 
 
                  <!--ПОЧАТОК ОСНОВИ ТАБЛИЦІ-->
-                <% for (var i = products.length-1; i >= 0; i--) { %>
+                <% for (var i = products.length-1, index = 0; i >= 0; i--) { %>
 
                 <% if(user.accountantnotnal && products[i].order == null && products[i].nal > 0) { %>
                     <% continue; } else if(user.logist && products[i].order == null) { %> 
@@ -312,7 +312,7 @@
                  <div class="client-product__out--line">
                     <% if(products[i].order != null && products[i].price == 0) { %>
                         <div class="client-product__line--info car-expect  client-product__line--index">
-                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=index++ %></h3>
                         </div>
                         <% if(user.logist || user.admin || user.accountant || user.accountantnotnal) { %>
                         <div class="client-product__line--info car-expect  client-product__line--index">
@@ -432,7 +432,7 @@
                         <!--pered else-->
                     <% } else if(products[i].order != null && products[i].pricenotnal <= 0) { %>
                         <div class="client-product__line--info car-pricenotnal  client-product__line--index">
-                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=index++ %></h3>
                         </div>
                         <% if(user.logist || user.admin || user.accountant || user.accountantnotnal) { %>
                         <div class="client-product__line--info car-pricenotnal  client-product__line--index">
@@ -550,7 +550,7 @@
                         <!--eles else-->
                     <% } else if(products[i].order != null && products[i].price > 0 ) { %>
                         <div class="client-product__line--info car-done  client-product__line--index">
-                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                            <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=index++ %></h3>
                         </div>
                         <% if(user.logist || user.admin || user.accountant || user.accountantnotnal) { %>
                         <div class="client-product__line--info car-done  client-product__line--index">
@@ -668,7 +668,7 @@
                         <!--ELSE THE END-->
                     <% } else { %>
                     <div class="client-product__line--info  client-product__line--index">
-                        <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=i %></h3>
+                        <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№: </span> <%=index++ %></h3>
                     </div>
                     <% if(user.logist || user.admin || user.accountant || user.accountantnotnal) { %>
                     <div class="client-product__line--info  client-product__line--index">
