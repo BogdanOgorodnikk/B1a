@@ -99,6 +99,17 @@ $(document).ready(function(){
     }
   }
 
+  var buttonDelete = document.querySelectorAll(".button-delete");
+  for(var i = 0; i < buttonDelete.length; i++) {
+    buttonDelete[i].onclick = function() {
+      var deletes = confirm("Ви впевнені що бажаєте видалити?")
+      if(deletes == false) {
+       return false;
+      } else {
+        return true;
+      }
+    }
+  }
 
   setInterval(function() {
     window.location.href = '/api/auth/logout';
