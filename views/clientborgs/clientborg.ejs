@@ -38,6 +38,11 @@
                     Сума проданого товару
                 </div>
             </div>
+            <% clients.sort(function(a, b) { %>
+                <% if(a.headline.toLowerCase() < b.headline.toLowerCase()) { return -1; } %>
+                <% if(a.headline.toLowerCase() > b.headline.toLowerCase()) { return 1; } %>
+                 <% return 0; %>
+             <% }); %>
             <% for(var i = 0; i < clients.length; i++) { %>
             <div class="borg__box">
                 <div class="borg__item">

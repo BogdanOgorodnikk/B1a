@@ -373,4 +373,38 @@ router.get('/tablesedit/town/:id/:title', (req, res, next) => {
   }
 });
 
+router.get('/tabledelete/:id', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+ 
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/')
+}  else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+      } else {
+        models.Post.findByIdAndRemove(id)
+      .then(cli => {
+        models.Post.find()
+          .then(post => {
+            res.render('tables/my_table', {
+            cli,
+            user: {
+              id: userId,
+              login: userLogin,
+              admin: useradmin
+            }
+          });
+          })
+          
+      res.redirect('back');
+      })
+      }      
+}
+});
+
 module.exports = router;

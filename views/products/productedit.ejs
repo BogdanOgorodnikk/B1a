@@ -191,6 +191,11 @@
                         </h3>
                     </div>
                     <select name="" id="product-edit__owner">
+                        <% clients.sort(function(a, b) { %>
+                            <% if(a.headline.toLowerCase() < b.headline.toLowerCase()) { return -1; } %>
+                            <% if(a.headline.toLowerCase() > b.headline.toLowerCase()) { return 1; } %>
+                             <% return 0; %>
+                         <% }); %>
                         <% for(var i = 0; i < clients.length; i++) { %>
                             <option value="<%= clients[i].id %>" <% if(product.client == clients[i].id) { %> selected <% } %>><%=clients[i].headline %></option>
                         <% } %>

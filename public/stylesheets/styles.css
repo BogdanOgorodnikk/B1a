@@ -1096,7 +1096,9 @@ body {
   color: #fff;
   text-decoration: none;
 }
-
+.client-product__out--line:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
 
 
 
