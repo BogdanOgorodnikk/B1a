@@ -1,0 +1,29 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="edittown">
+        <div class="container">
+            <div class="edittown__back client-pith__href">
+                <a href="/tables/my_tables" class="edittown__back--link">Повернутися назад</a>
+            </div>
+             <h3 class="edittown__name" id="<%=posts.id %>"><span class="edittown__name--span">Назва міста:</span> <%= posts.title %></h3>
+             <div class="edittonw__box">
+                    <h3 class="edittown__box--name">Назва міста:</h3>
+                    <input type="text" class="edittown__box--input" value="<%=posts.title %>">
+             </div>
+             <div class="edittown__button">
+                <button class="edittown__button--click button">Застосувати зміни</button>
+             </div>
+        </div>
+    </section>
+</main>
+
+
+
+<%- include('../layout/footer.ejs')%>

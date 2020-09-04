@@ -24,4 +24,11 @@ $(document).ready(function(){
             }
           });
       });
+      $('.editclient__button--click').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.edittown__name').attr('id');
+        var headline = $('.edittown__box--input').val();
+      
+        $(location).attr('href', `client/${id}/${headline}`);
+      });
     });

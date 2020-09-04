@@ -43,6 +43,9 @@ const models = require('../models');
               diff: {
                 $sum: "$different"
               },
+              number: {
+                $sum: "$number"
+              },
             }
             }
             ])

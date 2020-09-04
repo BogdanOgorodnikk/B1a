@@ -9,6 +9,7 @@
 <main class="main">
     <section class="my-table">
         <div class="container">
+            <% posts.sort() %>
             <% for (var i = 0; i < posts.length; i++) { %> 
                 <div class="my-table__box">
                     <% if(user.admin || user.logist || user.accountant || user.accountantnotnal || user.manager && user.login == posts[i].manager || user.manager && user.login == posts[i].securitymanager || user.manager && user.login == posts[i].securitymanagersecond) { %>
@@ -26,6 +27,11 @@
                         <h3 class="my-table__info"><a href="/tables/my_tables/<%=posts[i].id %>" class="my-table__link">Для міста закріплений менеджер</a></h3>
                     </div>
                     <% } %>
+                    <% } %>
+                    <% if(user.admin) { %>
+                    <div class="my-table__item edit">
+                        <h3 class="my-table__info"><a href="tablesedit/<%=posts[i].id %>" class="my-table__link">Редагувати</a></h3>
+                    </div>
                     <% } %>
                 </div>
             <% } %>

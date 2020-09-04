@@ -85,7 +85,7 @@
                   </div>
                 <ul class="nav__list" id="nav-main">
                     <li class="nav__item"><a href="/" class="nav__link">На головну</a></li>
-                    <li class="nav__item"><a href="/tables/my_tables" class="nav__link">Таблиці</a></li>
+                    <li class="nav__item"><a href="/tables/my_tables" class="nav__link">Міста</a></li>
                     <% if(user.admin) { %>
                     <li class="nav__item"><a href="/post/add" class="nav__link">Створити місто</a></li>
                     <li class="nav__item"><a href="/allusers" class="nav__link">Всі користувачі</a></li>
@@ -196,6 +196,15 @@
                             </span>
                        </h3>
                    </div>
+                   <div class="client-product__line--info-debt">
+                    <h3 class="client-product__debt client-product__line--gen">Сума проданих тон: 
+                        <% for (var i = 0; i < prosum.length; i++) { %>
+                            <% if(prosum[i]["_id"] == client.id) { %>
+                                <span class="client-product__line--debt"><%=prosum[i]["number"]%></span>
+                            <% } %>
+                        <% } %>
+                    </h3>
+                </div>
                 </div>
                 <% } %>
              <div class="client-product__out--top">

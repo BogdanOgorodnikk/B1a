@@ -486,12 +486,6 @@ body {
   text-decoration: none;
   display: block; }
 
-.table__point--delete:hover {
-  background: #ff0036;
-  border: 1px solid #ff0036; }
-
-.table__point--out-delete:hover {
-  color: #fff; }
 .register__error {
   display: inline-block;
   color: #ad0404;
@@ -1054,5 +1048,61 @@ body {
 .change-pass__login {
   font-weight: 700;
 }
+.edit {
+  background: #ff8a00;
+}
+.edittown {
+  margin-top: 10px;
+}
+.edittown__name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #262626;
+}
+.edittown__name--span {
+  font-weight: 700;
+}
+.edittonw__box {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.edittown__box--name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #262626;
+  margin-right: 30px;
+}
+.edittown__box--input {
+  border: 1px solid #000;
+    padding: 6px 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #505050;
+    width: 200px;
+}
+.edittown__button--click, .editclient__button--click {
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.edittown__back {
+  margin-bottom: 15px;
+}
+.edittown__back--link {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
 .none {
   display: none; }

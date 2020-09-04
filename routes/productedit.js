@@ -167,7 +167,7 @@ const product = require('../models/product');
     }
   });
 
-  router.get('/admin/:id/:order/:firms/:datal/:title/:number/:delivery/:price/:opt/:nal/:notnal/:pricenotnal/:deliverynotnal/:deltadebtnal/:deltadebt', (req, res, next) => {
+  router.get('/admin/:id/:order/:firms/:datal/:title/:number/:delivery/:price/:opt/:nal/:notnal/:pricenotnal/:deliverynotnal/:deltadebtnal/:deltadebt/:client', (req, res, next) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const useradmin = req.session.userAdmin;
@@ -186,6 +186,7 @@ const product = require('../models/product');
     const deliverynotnal = req.params.deliverynotnal.trim().replace(/ +(?= )/g, '');
     const deltadebtnal = req.params.deltadebtnal.trim().replace(/ +(?= )/g, '');
     const deltadebt = req.params.deltadebt.trim().replace(/ +(?= )/g, '');
+    const client = req.params.client.trim().replace(/ +(?= )/g, '');
 
 
     if(!userId || !userLogin || !useradmin) {
@@ -215,7 +216,8 @@ const product = require('../models/product');
           deltadebtnal: ((price-pricenotnal)*number)-delivery,
           sumsell: price * number,
           deltatonnal: deltadebtnal / number,
-          deltatonnotnal: deltadebt / number}, {new: true}
+          deltatonnotnal: deltadebt / number,
+          client: client}, {new: true}
         )
         .then(product => {
           res.render('allusers/alluserdone', {

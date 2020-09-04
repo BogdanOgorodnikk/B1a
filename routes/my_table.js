@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const models = require('../models');
+const user = require('../models/user');
 
 
 
@@ -208,8 +209,117 @@ router.get('/:table/:owner/:id', (req, res, next) => {
       } else {
         models.Client.findByIdAndRemove(id)
       .then(cli => {
-          res.render('tables/table', {
+        models.Post.find()
+          .then(post => {
+            res.render('tables/table', {
             cli,
+            user: {
+              id: userId,
+              login: userLogin,
+              admin: useradmin
+            }
+          });
+          })
+          
+      res.redirect('back');
+      })
+      }      
+}
+});
+
+router.get('/clientedit/:id', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+ 
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/')
+} else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+      } else {
+        models.Post.find()
+        .then(posts => {
+          models.Client.findById(id)
+          .then(clients => {
+            res.render('tables/editclient', {
+              clients,
+              posts,
+              user: {
+                id: userId,
+                login: userLogin,
+                admin: useradmin
+              }
+            });
+            res.redirect('back');
+          })
+        })
+      }      
+    }
+});
+
+router.get('/clientedit/client/:id/:headline', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+  const headline = req.params.headline.trim().replace(/ +(?= )/g, '');
+
+  
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/');
+  } else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+    } else {
+        models.Client.findByIdAndUpdate(id, {
+          headline: headline
+        }, 
+        {
+          new: true
+        }
+      )
+      .then(clientss => {
+        models.Client.find()
+        .then(clients => {
+         res.render('tables/edittown', {
+          clientss,
+          user: {
+            id: userId,
+            login: userLogin,
+            admin: useradmin
+          }
+        }); 
+        })
+        res.redirect('back');
+      })
+    }   
+  }
+});
+
+router.get('/tablesedit/:id', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+ 
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/')
+} else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+      } else {
+        models.Post.findById(id)
+      .then(posts => {
+          res.render('tables/edittown', {
+            posts,
             user: {
               id: userId,
               login: userLogin,
@@ -220,6 +330,47 @@ router.get('/:table/:owner/:id', (req, res, next) => {
       })
       }      
 }
+});
+
+router.get('/tablesedit/town/:id/:title', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+  const title = req.params.title.trim().replace(/ +(?= )/g, '');
+
+  
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/');
+  } else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+    } else {
+        models.Post.findByIdAndUpdate(id, {
+          title: title
+        }, 
+        {
+          new: true
+        }
+      )
+      .then(posts => {
+        models.Client.find()
+        .then(clients => {
+         res.render('tables/edittown', {
+          posts,
+          user: {
+            id: userId,
+            login: userLogin,
+            admin: useradmin
+          }
+        }); 
+        })
+        res.redirect('back');
+      })
+    }   
+  }
 });
 
 module.exports = router;

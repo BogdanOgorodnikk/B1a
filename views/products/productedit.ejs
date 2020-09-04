@@ -185,6 +185,18 @@
                     <input class="user-edit__input" id="product-edit__notnal" type="text" placeholder="login" value="<%= product.notnal %>">
                 </div>
                 <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
+                            Змінити власника замовлення
+                        </h3>
+                    </div>
+                    <select name="" id="product-edit__owner">
+                        <% for(var i = 0; i < clients.length; i++) { %>
+                            <option value="<%= clients[i].id %>" <% if(product.client == clients[i].id) { %> selected <% } %>><%=clients[i].headline %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="user-edit__block">
                     <button id="product-edit__click-admin" class="button user-edit__button">Застосувати зміни</button>
                 </div>
                 <% } %>

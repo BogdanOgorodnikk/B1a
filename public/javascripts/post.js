@@ -31,4 +31,11 @@ $('.publish-button').on('click', function(e) {
 
     $(location).attr('href', `${id}/${manager}/${securitymanager}/${securitymanagersecond}`);
 });
+$('.edittown__button--click').on('click', function(e) {
+  e.preventDefault();
+  var id = $('.edittown__name').attr('id');
+  var title = $('.edittown__box--input').val();
+
+  $(location).attr('href', `town/${id}/${title}`);
+});
 });

@@ -35,9 +35,10 @@ $(document).ready(function(){
         var notnal = $('#product-edit__notnal').val();
         var pricenotnal = $('#product-edit__pricenotnal').val();
         var deliverynotnal = $('#product-edit__deliverynotnal').val();
+        var client = $('#product-edit__owner').val();
         var deltadebtnal = $('.product-edit__deltadebtnal-val').attr('id');
         var deltadebt = $('.product-edit__deltadebt-val').attr('id');
-        $(location).attr('href', `admin/${id}/${order}/${firms}/${datal}/${title}/${number}/${delivery}/${price}/${opt}/${nal}/${notnal}/${pricenotnal}/${deliverynotnal}/${deltadebtnal}/${deltadebt}`);
+        $(location).attr('href', `admin/${id}/${order}/${firms}/${datal}/${title}/${number}/${delivery}/${price}/${opt}/${nal}/${notnal}/${pricenotnal}/${deliverynotnal}/${deltadebtnal}/${deltadebt}/${client}`);
     });
     $('#product-edit__click-notnal').on('click', function(e) {
         e.preventDefault();

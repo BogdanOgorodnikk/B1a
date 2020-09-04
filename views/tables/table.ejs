@@ -36,6 +36,14 @@
                     <h3 class="table__head--describe">Сума проданого товару</h3>
                 </div>
                 <% } %>
+                <% if(user.admin) { %>
+                    <div class="table__head--name table__point--delete">
+                        <h3 class="table__head--describe">Видалити</h3>
+                    </div>
+                    <div class="table__head--name table__point--delete">
+                        <h3 class="table__head--describe">Редагувати</h3>
+                    </div>
+                    <% } %>
             </div>
             <div class="table__body" id="out">
                 <% for (var i = 0; i < clients.length; i++) { %> 
@@ -81,8 +89,11 @@
                         </div>
                         <% } %>
                         <% if(user.admin) { %>
-                        <div class='table__point--line table__point--delete'>
+                        <div class='table__point--line table__point--delete car-expect'>
                             <a class='table__point--out table__point--out-delete' href="<%=post.url %>/<%=clients[i].owner %>/<%=clients[i].id %>">Видалити</a>
+                        </div>
+                        <div class='table__point--line edit table__point--delete'>
+                            <a class='table__point--out table__point--out-delete' href="clientedit/<%=clients[i].id %>">Редагувати</a>
                         </div>
                         <% } %>
                     </div>    
