@@ -64,6 +64,15 @@ $(document).ready(function(){
 
     });
 
+    $('.editmoney__button--click').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.edittown__box--name').attr('id');
+        var nal = $('.edittown__box--input').val();
+
+        $(location).attr('href', `adm/${id}/${nal}`);
+
+    });
+
     var checkautosum = document.querySelectorAll('.allseler__check');
     for(var i = 0; i < checkautosum.length; i++) {
       checkautosum[i].onclick = function() {

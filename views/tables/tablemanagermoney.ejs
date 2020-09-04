@@ -30,6 +30,9 @@
                 <div class="manager-money__item manager-money__item--head">
                     Розраховувати
                 </div>
+                <div class="manager-money__item manager-money__item--head">
+                    Змінити
+                </div>
             </div>
             <% for(var i = 0; i < products.length; i++) { %>
                 <% if(products[i].owner == users.id) { %>
@@ -55,6 +58,9 @@
                         </div>
                         <div class="manager-money__item">
                             <input class="manager-monet__check" type="checkbox" value="false">
+                        </div>
+                        <div class="manager-money__item">
+                            <a href="oplataedit/<%=products[i].id %>">Змінити</a>
                         </div>
                     </div>
                 <% } %>

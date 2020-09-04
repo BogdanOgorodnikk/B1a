@@ -1084,7 +1084,7 @@ body {
     color: #505050;
     width: 200px;
 }
-.edittown__button--click, .editclient__button--click {
+.edittown__button--click, .editclient__button--click, .editmoney__button--click {
   color: #fff;
   margin-top: 30px;
   margin-bottom: 30px;

@@ -1,0 +1,20 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="edittown">
+        <div class="container">
+             <div class="edittonw__box">
+                    <h3 class="edittown__box--name" id="<%=products.id %>">Внесена сума:</h3>
+                    <input type="text" class="edittown__box--input" value="<%=products.nal %>">
+             </div>
+             <div class="edittown__button">
+                <button class="editmoney__button--click button">Застосувати зміни</button>
+             </div>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>
