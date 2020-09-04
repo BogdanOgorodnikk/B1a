@@ -101,6 +101,11 @@
                         <h3 class="client-product__line--text allseler-width"><span class="client-product__line--responsive">Змінити: </span>Змінити</h3>
                     </div>
                     <% } %>
+                    <% if(user.admin) { %>
+                    <div class="client-product__line--info allseler-width">
+                        <h3 class="client-product__line--text allseler-width"><span class="client-product__line--responsive">Видалити: </span>Видалити</h3>
+                    </div>
+                    <% } %>
                 </div>
                <% for (var i = products.length-1, inex = 0; i >= 0; i--) { %>
                 <% if(products[i].firms == "") { %>
@@ -199,6 +204,11 @@
                              <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                          </div>
                           <% } %>
+                        <% if(user.admin) { %>
+                            <div class="client-product__line--info car-expect allseler-width">
+                                <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                            </div>
+                        <% } %>
                     </div>
                 <!--Якщо без ціни не налі-->
                 <% } else if(products[i].order != null && products[i].pricenotnal <= 0) { %>
@@ -294,6 +304,11 @@
                              <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                          </div>
                           <% } %>
+                          <% if(user.admin) { %>
+                            <div class="client-product__line--info car-expect allseler-width">
+                                <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                            </div>
+                        <% } %>
                      </div>
                 <% } else { %>
                     <!--УСПЫХ-->
@@ -389,6 +404,11 @@
                              <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                          </div>
                          <% } %>
+                         <% if(user.admin) { %>
+                            <div class="client-product__line--info car-expect allseler-width">
+                                <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                            </div>
+                        <% } %>
                      </div>
                 <% } %>
                 <% } %>

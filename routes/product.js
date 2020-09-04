@@ -89,6 +89,39 @@ const models = require('../models');
       });
     }
   });
-  
+
+  router.get('/productsdelete/:id', (req, res, next) => {
+    const userId = req.session.userId;
+    const userLogin = req.session.userLogin;
+    const useradmin = req.session.userAdmin;
+    const id = req.params.id.trim().replace(/ +(?= )/g, '');
+   
+    if(!userId || !userLogin || !useradmin) {
+      res.redirect('/')
+  }  else {
+      if (!id) {
+        const err = new Error('Not Found');
+        err.status = 404;
+        next(err);
+        } else {
+          models.Product.findByIdAndRemove(id)
+        .then(cli => {
+          models.Post.find()
+            .then(post => {
+              res.render('allselers/allseler', {
+              cli,
+              user: {
+                id: userId,
+                login: userLogin,
+                admin: useradmin
+              }
+            });
+            })
+            
+        res.redirect('back');
+        })
+        }      
+  }
+  });
   
 module.exports = router;

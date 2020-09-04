@@ -309,6 +309,11 @@
                         <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Змінити: </span>Змінити</h3>
                     </div>
                     <% } %>
+                    <% if(user.admin) { %>
+                        <div class="client-product__line--info">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Видалити: </span>Видалити</h3>
+                        </div>
+                    <% } %>
                  </div>
 
 
@@ -436,6 +441,11 @@
                             </div>
                             <% } %>
                         <% } %>
+                        <% if(user.admin) { %>
+                            <div class="client-product__line--info car-expect">
+                                <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                            </div>
+                        <% } %>
 
 
                         <!--pered else-->
@@ -556,6 +566,11 @@
                             </div>
                             <% } %>
                         <% } %>
+                        <% if(user.admin) { %>
+                            <div class="client-product__line--info car-expect">
+                                <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                            </div>
+                        <% } %>
                         <!--eles else-->
                     <% } else if(products[i].order != null && products[i].price > 0 ) { %>
                         <div class="client-product__line--info car-done  client-product__line--index">
@@ -674,6 +689,11 @@
                             </div>
                             <% } %>
                         <% } %>
+                        <% if(user.admin) { %>
+                            <div class="client-product__line--info car-expect">
+                                <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                            </div>
+                        <% } %>
                         <!--ELSE THE END-->
                     <% } else { %>
                     <div class="client-product__line--info  client-product__line--index">
@@ -791,6 +811,11 @@
                             <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                         </div>
                         <% } %>
+                    <% } %>
+                    <% if(user.admin) { %>
+                        <div class="client-product__line--info car-expect">
+                            <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
+                        </div>
                     <% } %>
                     <% } %>
                  </div>
