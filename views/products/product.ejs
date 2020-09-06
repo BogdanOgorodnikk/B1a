@@ -94,6 +94,10 @@
                     <% if(user.admin) { %>
                     <li class="nav__item"><a href="/allusers" class="nav__link">Всі користувачі</a></li>
                     <li class="nav__item"><a href="/clientborgs" class="nav__link">Борги клієнтів</a></li>
+                    <li class="nav__item"><a href="/productnames" class="nav__link">Створити продукт</a></li>
+                    <li class="nav__item"><a href="/firms" class="nav__link">Створити фірму</a></li>
+                    <li class="nav__item"><a href="/opts" class="nav__link">Створити оптову ціну</a></li>
+                    <li class="nav__item"><a href="/numbers" class="nav__link">Створити кількість тон</a></li>
                     <% } %>
                     <% if(user.admin || user.accountant) { %>
                     <li class="nav__item"><a href="/moneys" class="nav__link">Оплати менеджерів</a></li>
@@ -124,20 +128,44 @@
                  <div class="client-info__box">
                      <% if(user.logist || user.admin) { %>
                      <div class="client-info__item"><input id="client-info__order" class="client-info__input" type="text" placeholder="№ замовлення"></div>
-                     <div class="client-info__item"><input id="client-info__firms" class="client-info__input" type="text" placeholder="Фірма"></div>
+                     <div class="client-info__item">
+                        <select id="client-info__firms" class="client-info__selector">
+                            <% for(var g = 0; g < firms.length; g++) { %>
+                                <option value="<%=firms[g].title %>" ><%=firms[g].title %></option>
+                            <% } %>
+                        </select>
+                     </div>
                      <% } %>
                      <% if(user.admin || user.logist || user.manager || user.accountantnotnal || user.accountant) { %>
                      <div class="client-info__item"><input id="client-info__datal" class="client-info__input" type="text" placeholder="Дата"></div>
                      <% } %>
                      <% if(user.admin || user.logist) { %>
-                     <div class="client-info__item"><input id="client-info__name" class="client-info__input" type="text" placeholder="Назва товару"></div>
+                     <div class="client-info__item">
+                        <select id="client-info__name" class="client-info__selector">
+                            <% for(var g = 0; g < productnames.length; g++) { %>
+                                <option value="<%=productnames[g].title %>" ><%=productnames[g].title %></option>
+                            <% } %>
+                        </select>
+                    </div>
                      <% } %>
                      <% if (user.accountantnotnal || user.accountant) { %>
                     <div class="client-info__item"><input id="client-info__name" class="client-info__input" type="text" placeholder="Операція" value="Оплата"></div>
                     <% } %>
                      <% if(user.logist || user.admin) { %>
-                     <div class="client-info__item"><input id="client-info__opt" class="client-info__input" type="text" placeholder="Оптова ціна"></div>
-                     <div class="client-info__item"><input id="client-info__number" class="client-info__input" type="text" placeholder="Кількість"></div>
+                    <div class="client-info__item">
+                        <select id="client-info__opt" class="client-info__selector">
+                            <% for(var g = 0; g < opts.length; g++) { %>
+                                <option value="<%=opts[g].opt %>" ><%=opts[g].opt %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="client-info__item">
+                        <select id="client-info__number" class="client-info__selector">
+                            <% for(var g = 0; g < numbers.length; g++) { %>
+                                <option value="<%=numbers[g].number %>" ><%=numbers[g].number %></option>
+                            <% } %>
+                        </select>
+                    </div>
                      <div class="client-info__item"><input id="client-info__delivery" class="client-info__input" type="text" placeholder="Доставка (самовивіз)"></div>
                      <div class="client-info__item"><input id="client-info__deliverynotnal" class="client-info__input" type="text" placeholder="Доставка по безналу"></div>
                      <div class="client-info__item"><input  class="button client-info__button" type="submit" value="Створити"></div>
@@ -449,6 +477,10 @@
                                 <div class="client-product__line--info car-expect">
                                
                                 </div>
+                            <% } else if(user.admin && products[i].order == null) { %>
+                                <div class="client-product__line--info change">
+                                    <a class="client-product__line--link" href="/editmoneys/<%=products[i].id %>">Змінити</a>
+                                </div>
                             <% } else { %>
                             <div class="client-product__line--info car-expect change">
                                 <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
@@ -572,7 +604,11 @@
                                 <div class="client-product__line--info car-pricenotnal">
                                
                                 </div>
-                            <% } else { %>
+                                <% } else if(user.admin && products[i].order == null) { %>
+                                    <div class="client-product__line--info change">
+                                        <a class="client-product__line--link" href="/editmoneys/<%=products[i].id %>">Змінити</a>
+                                    </div>
+                                <% } else { %>
                             <div class="client-product__line--info car-pricenotnal change">
                                 <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                             </div>
@@ -695,7 +731,11 @@
                                 <div class="client-product__line--info car-done">
                                
                                 </div>
-                            <% } else { %>
+                                <% } else if(user.admin && products[i].order == null) { %>
+                                    <div class="client-product__line--info change">
+                                        <a class="client-product__line--link" href="/editmoneys/<%=products[i].id %>">Змінити</a>
+                                    </div>
+                                <% } else { %>
                             <div class="client-product__line--info car-done change">
                                 <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                             </div>
@@ -818,7 +858,11 @@
                             <div class="client-product__line--info">
                            
                             </div>
-                        <% } else { %>
+                            <% } else if(user.admin && products[i].order == null) { %>
+                                <div class="client-product__line--info change">
+                                    <a class="client-product__line--link" href="/editmoneys/<%=products[i].id %>">Змінити</a>
+                                </div>
+                            <% } else { %>
                         <div class="client-product__line--info change">
                             <a class="client-product__line--link" href="/productsedit/<%=products[i].id %>">Змінити</a>
                         </div>

@@ -1,0 +1,38 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="productname">
+        <div class="container">
+            <h2 class="productname__create">Стоверння назви продукта</h2>
+            <div class="firm__form">
+                <input type="text" class="firm__form--input">
+            </div>
+            <div class="firm__button">
+                <button class="firm__button--btn button">Створити</button>
+            </div>
+            <div class="productname__box">
+                <div class="productname__item productname__item-head">
+                    Назва товару
+                </div>
+                <div class="productname__item productname__item-head">
+                    Видалити
+                </div>
+            </div>
+            <% for(var i = 0; i < firms.length; i++) { %>
+            <div class="productname__box">
+                <div class="productname__item">
+                    <%= firms[i].title %>
+                </div>
+                <div class="productname__item car-expect">
+                    <a class="productname__delete" href="/firms/<%= firms[i].id %>">Видалити</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

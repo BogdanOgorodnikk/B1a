@@ -64,6 +64,19 @@ $(document).ready(function(){
 
     });
 
+    $('.edit-money__button--btn').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.edit-money__button').attr('id');
+        var title = $('.edit-money__title').val();
+        var nal = $('.edit-money__nal').val();
+        var notnal = $('.edit-money__notnal').val();
+
+        $(location).attr('href', `adminmoney/${id}/${title}/${nal}/${notnal}`);
+
+    });
+
+
+
     $('.editmoney__button--click').on('click', function(e) {
         e.preventDefault();
         var id = $('.edittown__box--name').attr('id');

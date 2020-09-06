@@ -98,6 +98,11 @@ app.use('/moneys', routes.money);
 app.use('/mypays', routes.mypay);
 app.use('/paynotnals', routes.paynotnal);
 app.use('/paynals', routes.paynal);
+app.use('/productnames', routes.productname);
+app.use('/firms', routes.firm);
+app.use('/opts', routes.opt);
+app.use('/numbers', routes.number);
+app.use('/editmoneys', routes.editmoney);
 
 
 // catch 404 and forward to error handler

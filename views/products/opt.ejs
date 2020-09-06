@@ -1,0 +1,38 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="productname">
+        <div class="container">
+            <h2 class="productname__create">Стоверння оптових цін</h2>
+            <div class="opt__form">
+                <input type="text" class="opt__form--input">
+            </div>
+            <div class="opt__button">
+                <button class="opt__button--btn button">Створити</button>
+            </div>
+            <div class="productname__box">
+                <div class="productname__item productname__item-head">
+                    Оптова ціна
+                </div>
+                <div class="productname__item productname__item-head">
+                    Видалити
+                </div>
+            </div>
+            <% for(var i = 0; i < opts.length; i++) { %>
+            <div class="productname__box">
+                <div class="productname__item">
+                    <%= opts[i].opt %>
+                </div>
+                <div class="productname__item car-expect">
+                    <a class="productname__delete" href="/opts/<%= opts[i].id %>">Видалити</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

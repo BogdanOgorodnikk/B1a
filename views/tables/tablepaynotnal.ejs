@@ -30,7 +30,7 @@
             <% for(var i = 0; i < users.length; i++) { %>
                 <% if(users[i].isAccountantnotnal || users[i].isAdmin)  { %>
                     <% for(var k = products.length-1, index = 0; k >= 0; k--) { %>
-                        <% if(users[i].id == products[k].owner) { %>
+                        <% if(users[i].id == products[k].owner && products[k].order == null) { %>
                             <div class="pay__box">
                                 <div class="pay__item">
                                     <span class="pay__item--respons">№: </span> <%= index++ %>

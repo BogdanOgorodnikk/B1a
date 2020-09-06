@@ -14,6 +14,11 @@ const money = require('./money');
 const mypay = require('./mypay');
 const paynotnal = require('./paynotnal');
 const paynal = require('./paynal');
+const productname = require('./productname');
+const firm = require('./firm');
+const opt = require('./opt');
+const number = require('./number');
+const editmoney = require('./editmoney');
 
 
 module.exports = {
@@ -32,5 +37,10 @@ module.exports = {
     money,
     mypay,
     paynotnal,
-    paynal
+    paynal,
+    productname,
+    firm,
+    opt,
+    number,
+    editmoney
 };

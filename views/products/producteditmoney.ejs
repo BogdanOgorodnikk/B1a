@@ -1,0 +1,41 @@
+<%- include('../layout/head.ejs')%>
+
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+
+<main class="main">
+    <section class="edit-money">
+        <div class="container">
+            <div class="user-edit__back">
+                <a href="/products/<% for(var i = 0; i < clients.length; i++) { if(product.client == clients[i].id) { %> <%=clients[i].url %> <% } } %>" class="user-edit__back--link">Повернутися назад до таблиці</a>
+            </div>
+            <div class="edit-money__box">
+                <h3 class="edit-money__type">Назва дії</h3>
+                <div class="edit-money__input">
+                    <input type="text" class="edit-money__title" placeholder="Назва дії" value="<%=product.title %>">
+                </div>
+            </div>
+            <div class="edit-money__box">
+                <h3 class="edit-money__type">Налічка</h3>
+                <div class="edit-money__input">
+                    <input type="text" class="edit-money__nal" placeholder="Налічка" value="<%=product.nal %>">
+                </div>
+            </div>
+            <div class="edit-money__box">
+                <h3 class="edit-money__type">Безнал</h3>
+                <div class="edit-money__input">
+                    <input type="text" class="edit-money__notnal" placeholder="Безнал" value="<%=product.notnal %>">
+                </div>
+            </div>
+            <div class="edit-money__button" id="<%= product.id %>">
+                <button class="edit-money__button--btn button">Змінити</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<%- include('../layout/footer.ejs')%>

@@ -1126,10 +1126,96 @@ body {
   display: none;
   width: 130px;
 }
-
-
-
-
+.productname {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.productname__create {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #262626;
+}
+.productname__form, .firm__form, .opt__form, .number__form {
+  margin-top: 30px;
+}
+.productname__form--input, .firm__form--input, .opt__form--input, .number__form--input {
+  border: 1px solid #000;
+  padding: 10px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #505050;
+  width: 800px;
+}
+.productname__button--btn, .firm__button--btn, .opt__button--btn, .number__button--btn  {
+  color: #fff;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.productname__box {
+  display: flex;
+}
+.productname__item {
+  width: 100%;
+  border: 1px solid #262626;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+}
+.productname__item-head {
+  text-align: center;
+  font-weight: 700;
+}
+.productname__delete {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+}
+.productname__delete:hover {
+  color: #fff;
+}
+.client-info__selector {
+  border: 1px solid #000;
+  padding: 13px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+  width: 160px;
+}
+.edit-money {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.edit-money__box {
+  display: flex;
+  margin-top: 15px;
+}
+.edit-money__type {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+  width: 10%;
+}
+.edit-money__title, .edit-money__nal, .edit-money__notnal {
+  border: 1px solid #000;
+  padding: 5px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+  width: 160px;
+}
+.edit-money__button--btn {
+  color: #fff;
+  margin-top: 30px;
+}
 
 
 .none {

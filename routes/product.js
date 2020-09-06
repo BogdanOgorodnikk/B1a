@@ -4,6 +4,8 @@ const moment = require('moment');
 moment.locale('ru');
 
 const models = require('../models');
+const productname = require('../models/productname');
+const number = require('../models/number');
   
   router.get('/:product', (req, res, next) => {
     const url = req.params.product.trim().replace(/ +(?= )/g, '');
@@ -61,24 +63,40 @@ const models = require('../models');
                   models.User.find({
                   
                   }).then(users => {
-                    res.render('products/product', {
-                      client,
-                      products,
-                      sumpith,
-                      moment,
-                      prosum,
-                      users,
-                      user: {
-                        id: userId,
-                        login: userLogin,
-                        admin: useradmin,
-                        logist: userlogist,
-                        clien: userclien,
-                        accountant: useraccountant,
-                        accountantnotnal: useraccountantnotnal,
-                        manager: usermanager
-                      }
-                    });
+                    models.Firm.find()
+                      .then(firms => {
+                        models.Productname.find()
+                          .then(productnames => {
+                            models.Opt.find()
+                             .then(opts => {
+                               models.Number.find()
+                                .then(numbers => {
+                                  res.render('products/product', {
+                                    client,
+                                    products,
+                                    sumpith,
+                                    moment,
+                                    prosum,
+                                    users,
+                                    firms,
+                                    productnames,
+                                    opts,
+                                    numbers,
+                                    user: {
+                                      id: userId,
+                                      login: userLogin,
+                                      admin: useradmin,
+                                      logist: userlogist,
+                                      clien: userclien,
+                                      accountant: useraccountant,
+                                      accountantnotnal: useraccountantnotnal,
+                                      manager: usermanager
+                                    }
+                                  });
+                                })
+                             })
+                          })
+                      })
                   })
                 })
             })
