@@ -28,7 +28,7 @@
                 </div>
             </div>
             <% for(var i = 0; i < users.length; i++) { %>
-                <% if(users[i].isAccountant || users[i].isManager)  { %>
+                <% if(users[i].isAccountant || users[i].isManager || users[i].isAdmin)  { %>
                     <% for(var k = products.length-1, index = 0; k >= 0; k--) { %>
                         <% if(users[i].id == products[k].owner) { %>
                             <div class="pay__box">
@@ -44,7 +44,8 @@
                                 <div class="pay__item">
                                     <% for(var j = 0; j < clients.length; j++) { %>
                                         <% if(products[k].client == clients[j].id) { %>
-                                            <span class="pay__item--respons">Ім'я клієнта: </span> <%= clients[j].headline %>
+                                            <span class="pay__item--respons">Ім'я клієнта: </span> 
+                                            <a href="/products/<%= clients[j].url %>"><%= clients[j].headline %></a>
                                         <% } %>
                                     <% } %>
                                 </div>

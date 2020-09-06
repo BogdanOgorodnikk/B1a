@@ -334,7 +334,6 @@
 
                  <!--ПОЧАТОК ОСНОВИ ТАБЛИЦІ-->
                 <% for (var i = products.length-1, index = 0; i >= 0; i--) { %>
-
                 <% if(user.accountantnotnal && products[i].order == null && products[i].nal > 0) { %>
                     <% continue; } else if(user.logist && products[i].order == null) { %> 
                     <% continue; } else { %>
@@ -461,8 +460,6 @@
                                 <a class="client-product__line--link" href="/products/productsdelete/<%=products[i].id %>">Видалити</a>
                             </div>
                         <% } %>
-
-
                         <!--pered else-->
                     <% } else if(products[i].order != null && products[i].pricenotnal <= 0) { %>
                         <div class="client-product__line--info car-pricenotnal  client-product__line--index">
@@ -835,12 +832,6 @@
                     <% } %>
                  </div>
                  <% } %>
-
-
-
-
-
-
                  <% } %>
              </div>
          </div>
