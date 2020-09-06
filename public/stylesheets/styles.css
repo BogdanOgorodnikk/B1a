@@ -584,7 +584,7 @@ body {
 
 .client-product__line--responsive {
   display: none;
-  width: 120px; }
+  width: 130px; }
   .btn-nav {
     border: 0;
     background: none;
@@ -1123,7 +1123,6 @@ body {
 .pay__item--respons {
   display: none;
 }
-
 
 
 
