@@ -25,7 +25,7 @@
                 <% if(user.admin || user.accountantnotnal ||  user.accountant || user.logist) { %>
                 <li class="nav__item"><a href="/allselers" class="nav__link">Всі продажі</a></li>
                 <% } %>
-                <% if(user.manager) { %>
+                <% if(user.manager || user.accountantnotnal || user.accountant) { %>
                 <li class="nav__item"><a href="/mypays" class="nav__link">Мої оплати</a></li>
                 <% } %>
                 <% } %>

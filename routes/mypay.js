@@ -8,8 +8,10 @@ router.get('/', (req, res) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const usermanager = req.session.userManager;
+    const useraccountantnotnal = req.session.userAccountantnotnal;
+    const useraccountant = req.session.userAccountant;
     
-    if(!userId || !userLogin || !usermanager) {
+    if(!userId || !userLogin || !usermanager && !useraccountantnotnal && !useraccountant) {
       res.redirect('/');
     } else {
         models.Product.find()
@@ -23,6 +25,8 @@ router.get('/', (req, res) => {
                         id: userId,
                         login: userLogin,
                         manager: usermanager,
+                        accountantnotnal: useraccountantnotnal,
+                        accountant: useraccountant
                     }
                 });
              })
