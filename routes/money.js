@@ -12,8 +12,9 @@ router.get('/', (req, res) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const useradmin = req.session.userAdmin;
+    const useraccountant = req.session.userAccountant;
     
-    if(!userId || !userLogin || !useradmin) {
+    if(!userId || !userLogin || !useradmin && !useraccountant) {
       res.redirect('/');
     } else {
         models.User.find()
@@ -23,7 +24,8 @@ router.get('/', (req, res) => {
                 user: {
                     id: userId,
                     login: userLogin,
-                    admin: useradmin
+                    admin: useradmin,
+                    accountant: useraccountant
                 }
             });
         })
@@ -34,10 +36,11 @@ router.get('/:id', (req, res, next) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const useradmin = req.session.userAdmin;
+    const useraccountant = req.session.userAccountant;
   
     const id = req.params.id.trim().replace(/ +(?= )/g, '');
     
-    if(!userId || !userLogin || !useradmin) {
+    if(!userId || !userLogin || !useradmin && !useraccountant) {
       res.redirect('/');
     }  else {
         if (!id) {
@@ -59,7 +62,8 @@ router.get('/:id', (req, res, next) => {
                             user: {
                                 id: userId,
                                 login: userLogin,
-                                admin: useradmin
+                                admin: useradmin,
+                                accountant: useraccountant
                             }
                         }); 
                      })

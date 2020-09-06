@@ -18,6 +18,8 @@
                 <% if(user.admin) { %>
                 <li class="nav__item"><a href="/allusers" class="nav__link">Всі користувачі</a></li>
                 <li class="nav__item"><a href="/clientborgs" class="nav__link">Борги клієнтів</a></li>
+                <% } %>
+                <% if(user.admin || user.accountant) { %>
                 <li class="nav__item"><a href="/moneys" class="nav__link">Оплати</a></li>
                 <% } %>
                 <% if(user.admin || user.accountantnotnal ||  user.accountant || user.logist) { %>

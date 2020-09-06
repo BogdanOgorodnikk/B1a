@@ -9,7 +9,7 @@
         <div class="container">
             <h3 class="money-manager__name">Ім'я менеджера: <%= users.login %></h3>
             <div class="manager-money__autosum">
-                Сумма: <span class="money__autosum--out"></span>
+                Сума: <span class="money__autosum--out"></span>
             </div>
             <div class="manager-money__box manager-money__head">
                 <div class="manager-money__item manager-money__item--head">
@@ -30,9 +30,11 @@
                 <div class="manager-money__item manager-money__item--head">
                     Розраховувати
                 </div>
+                <% if(user.admin) { %>
                 <div class="manager-money__item manager-money__item--head">
                     Змінити
                 </div>
+                <% } %>
             </div>
             <% for(var i = products.length-1; i >= 0; i--) { %>
                 <% if(products[i].owner == users.id) { %>
@@ -59,9 +61,11 @@
                         <div class="manager-money__item">
                             <input class="manager-monet__check" type="checkbox" value="false">
                         </div>
+                        <% if(user.admin) { %>
                         <div class="manager-money__item">
                             <a href="oplataedit/<%=products[i].id %>">Змінити</a>
                         </div>
+                        <% } %>
                     </div>
                 <% } %>
             <% } %>
