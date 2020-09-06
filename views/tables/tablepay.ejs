@@ -24,7 +24,7 @@
                     Сума
                 </div>
             </div>
-            <% for(var i = 0, index = 0; i < products.length; i++) { %>
+            <% for(var i = products.length-1, index = 0; i >= 0; i--) { %>
                 <% if(user.id == products[i].owner)  { %>
                     <div class="pay__box">
                         <div class="pay__item">
