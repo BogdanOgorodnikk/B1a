@@ -583,7 +583,8 @@ body {
   margin-top: 20px; }
 
 .client-product__line--responsive {
-  display: none; }
+  display: none;
+  width: 120px; }
   .btn-nav {
     border: 0;
     background: none;
