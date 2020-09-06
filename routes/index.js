@@ -13,6 +13,7 @@ const pithedit = require('./pithedit');
 const money = require('./money');
 const mypay = require('./mypay');
 const paynotnal = require('./paynotnal');
+const paynal = require('./paynal');
 
 
 module.exports = {
@@ -30,5 +31,6 @@ module.exports = {
     pithedit,
     money,
     mypay,
-    paynotnal
+    paynotnal,
+    paynal
 };

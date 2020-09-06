@@ -28,7 +28,7 @@
                 </div>
             </div>
             <% for(var i = 0; i < users.length; i++) { %>
-                <% if(users[i].isAccountantnotnal)  { %>
+                <% if(users[i].isAccountant || users[i].isManager)  { %>
                     <% for(var k = products.length-1, index = 0; k >= 0; k--) { %>
                         <% if(users[i].id == products[k].owner) { %>
                             <div class="pay__box">
@@ -52,7 +52,7 @@
                                     <span class="pay__item--respons">Дія: </span><%= products[k].title %>
                                 </div>
                                 <div class="pay__item">
-                                    <span class="pay__item--respons">Сума: </span><%= products[k].notnal %>
+                                    <span class="pay__item--respons">Сума: </span><%= products[k].nal %>
                                 </div>
                             </div>
                         <% } %>
