@@ -1,0 +1,55 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="pay">
+        <div class="container">
+            <div class="pay__box">
+                <div class="pay__item pay__item-head">
+                    №
+                </div>
+                <div class="pay__item pay__item-head">
+                    Дата
+                </div>
+                <div class="pay__item pay__item-head">
+                    Ім'я клієнта
+                </div>
+                <div class="pay__item pay__item-head">
+                    Дія
+                </div>
+                <div class="pay__item pay__item-head">
+                    Сума
+                </div>
+            </div>
+            <% for(var i = 0, index = 0; i < products.length; i++) { %>
+                <% if(user.id == products[i].owner)  { %>
+                    <div class="pay__box">
+                        <div class="pay__item">
+                            <span class="pay__item--respons">№: </span><%=index++ %>
+                        </div>
+                        <div class="pay__item">
+                            <span class="pay__item--respons">Дата: </span><%=products[i].datal %>
+                        </div>
+                        <div class="pay__item">
+                            <% for(var j = 0; j < clients.length; j++) { %>
+                                <% if(products[i].client == clients[j].id) { %>
+                                    <span class="pay__item--respons">Ім'я клієнта: </span> <%= clients[j].headline %>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <div class="pay__item">
+                            <span class="pay__item--respons">Дія: </span><%= products[i].title %>
+                        </div>
+                        <div class="pay__item">
+                            <span class="pay__item--respons">Сума: </span><%= products[i].nal %>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

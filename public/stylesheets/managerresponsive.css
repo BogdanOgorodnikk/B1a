@@ -65,6 +65,17 @@
     .pith-table__text {
         text-align: left;
     }
+    .pay__box {
+        display: block;
+        margin-top: 15px;
+    }
+    .pay__item-head {
+        display: none;
+    }
+    .pay__item--respons {
+        display: inline;
+        font-weight: 700;
+    }
 }
 @media screen and (max-width: 600px) {
     .about__item--photo {

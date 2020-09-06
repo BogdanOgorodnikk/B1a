@@ -1099,9 +1099,29 @@ body {
 .client-product__out--line:hover {
   background: rgba(0, 0, 0, 0.3);
 }
-
-
-
+.pay {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.pay__box {
+  display: flex;
+}
+.pay__item {
+  border: 1px solid #262626;
+  width: 100%;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+}
+.pay__item-head {
+  text-align: center;
+  font-weight: 700;
+}
+.pay__item--respons {
+  display: none;
+}
 
 
 
