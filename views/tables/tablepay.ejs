@@ -43,9 +43,15 @@
                         <div class="pay__item">
                             <span class="pay__item--respons">Дія: </span><%= products[i].title %>
                         </div>
+                        <% if(user.accountantnotnal) { %>
+                        <div class="pay__item">
+                            <span class="pay__item--respons">Сума: </span><%= products[i].notnal %>
+                        </div>
+                        <% } else { %>
                         <div class="pay__item">
                             <span class="pay__item--respons">Сума: </span><%= products[i].nal %>
                         </div>
+                        <% } %>
                     </div>
                 <% } %>
             <% } %>
