@@ -920,6 +920,7 @@ body {
   font-weight: 700;
   font-size: 16px;
   color: #131313;
+  width: 130px;
 }
 .borg__item--general {
   font-family: 'Roboto', sans-serif;
@@ -975,6 +976,7 @@ body {
   font-size: 16px;
   color: #131313;
   display: none;
+  width: 130px;
 }
 .manager-money__autosum {
   font-family: 'Roboto', sans-serif;
@@ -1122,7 +1124,11 @@ body {
 }
 .pay__item--respons {
   display: none;
+  width: 130px;
 }
+
+
+
 
 
 

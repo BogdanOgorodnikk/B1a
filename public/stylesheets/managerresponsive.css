@@ -73,8 +73,9 @@
         display: none;
     }
     .pay__item--respons {
-        display: inline;
+        display: inline-block;
         font-weight: 700;
+        width: 130px;
     }
 }
 @media screen and (max-width: 600px) {
