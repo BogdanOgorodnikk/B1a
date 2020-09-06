@@ -1,0 +1,59 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="pay">
+        <div class="container">
+            <div class="pay__box">
+                <div class="pay__item pay__item-head">
+                    №
+                </div>
+                <div class="pay__item pay__item-head">
+                    Дата
+                </div>
+                <div class="pay__item pay__item-head">
+                    Ім'я клієнта
+                </div>
+                <div class="pay__item pay__item-head">
+                    Дія
+                </div>
+                <div class="pay__item pay__item-head">
+                    Сума
+                </div>
+            </div>
+            <% for(var i = 0; i < users.length; i++) { %>
+                <% if(users[i].isAccountantnotnal)  { %>
+                    <% for(var k = products.length-1, index = 0; k >= 0; k--) { %>
+                        <% if(users[i].id == products[k].owner) { %>
+                            <div class="pay__box">
+                                <div class="pay__item">
+                                    <span class="pay__item--respons">№: </span> <%= index++ %>
+                                </div>
+                                <div class="pay__item">
+                                    <span class="pay__item--respons">Дата: </span><%=products[k].datal %>
+                                </div>
+                                <div class="pay__item">
+                                    <% for(var j = 0; j < clients.length; j++) { %>
+                                        <% if(products[k].client == clients[j].id) { %>
+                                            <span class="pay__item--respons">Ім'я клієнта: </span> <%= clients[j].headline %>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                                <div class="pay__item">
+                                    <span class="pay__item--respons">Дія: </span><%= products[k].title %>
+                                </div>
+                                <div class="pay__item">
+                                    <span class="pay__item--respons">Сума: </span><%= products[k].notnal %>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

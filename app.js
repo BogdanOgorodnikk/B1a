@@ -96,6 +96,7 @@ app.use('/clientpiths', routes.clientpith);
 app.use('/pithsedit', routes.pithedit);
 app.use('/moneys', routes.money);
 app.use('/mypays', routes.mypay);
+app.use('/paynotnals', routes.paynotnal);
 
 
 // catch 404 and forward to error handler

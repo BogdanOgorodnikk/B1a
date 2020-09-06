@@ -28,6 +28,9 @@
                 <% if(user.manager || user.accountantnotnal || user.accountant) { %>
                 <li class="nav__item"><a href="/mypays" class="nav__link">Мої оплати</a></li>
                 <% } %>
+                <% if(user.admin || user.accountantnotnal || user.accountant) { %>
+                <li class="nav__item"><a href="/paynotnals" class="nav__link">Оплати по безнал</a></li>
+                <% } %>
                 <% } %>
             </ul>
         </nav>
