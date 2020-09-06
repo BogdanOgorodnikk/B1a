@@ -7,6 +7,9 @@ const models = require('../models');
 router.post('/:table', (req, res) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
+    const useradmin = req.session.userAdmin;
+    const userlogist = req.session.userLogist;
+
 
     if(!userId || !userLogin) {
         res.redirect('/')
@@ -27,11 +30,10 @@ router.post('/:table', (req, res) => {
           error: 'Довжина назви таблиці від 3 до 32 символів!',
           fields: ['headline']
         });
-      } else if (owner != userId) {
+      } else if (!useradmin && !userlogist) {
         res.json({
           ok: false,
-          error: 'Ви не адміністратор!',
-          fields: ['owner']
+          error: 'Ви не адміністратор чи логіст!',
         });
       } else {
         models.Client.create({   

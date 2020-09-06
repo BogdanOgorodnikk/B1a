@@ -86,8 +86,10 @@
                 <ul class="nav__list" id="nav-main">
                     <li class="nav__item"><a href="/" class="nav__link">На головну</a></li>
                     <li class="nav__item"><a href="/tables/my_tables" class="nav__link">Міста</a></li>
-                    <% if(user.admin) { %>
+                    <% if(user.admin || user.logist) { %>
                     <li class="nav__item"><a href="/post/add" class="nav__link">Створити місто</a></li>
+                    <% } %>
+                    <% if(user.admin) { %>
                     <li class="nav__item"><a href="/allusers" class="nav__link">Всі користувачі</a></li>
                     <li class="nav__item"><a href="/clientborgs" class="nav__link">Борги клієнтів</a></li>
                     <li class="nav__item"><a href="/moneys" class="nav__link">Оплати</a></li>

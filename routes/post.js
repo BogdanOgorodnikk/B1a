@@ -7,15 +7,17 @@ router.get('/add', (req, res) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const useradmin = req.session.userAdmin;
+    const userlogist = req.session.userLogist;
 
-    if(!userId || !userLogin || !useradmin) {
+    if(!userId || !userLogin || !useradmin && !userlogist) {
         res.redirect('/')
     } else {
           res.render('generalTable/add', {
         user: {
           id: userId,
           login: userLogin,
-          admin: useradmin
+          admin: useradmin,
+          logist: userlogist
         }
       });  
     }
@@ -25,8 +27,9 @@ router.post('/add', (req, res) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const useradmin = req.session.userAdmin;
+    const userlogist = req.session.userLogist;
 
-    if(!userId || !userLogin || !useradmin) {
+    if(!userId || !userLogin || !useradmin && !userlogist) {
         res.redirect('/')
     } else {
       const title = req.body.title.trim().replace(/ +(?= )/g, '');

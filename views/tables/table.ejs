@@ -8,7 +8,7 @@
     <section class="create-client" id="<%=post.owner%>">
         <div class="container">
             <h1 class="table__headline" id="<%=post.id %>">Назва таблиці: <%=post.title %></h1>
-            <% if(user.admin) { %>
+            <% if(user.admin || user.logist) { %>
             <div class="create-clien__name">
                 <h3 class="create-clien__headline">Створити нового клієнта</h3>
                 <form action="" class="create-client__form">
