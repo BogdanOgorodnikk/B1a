@@ -5,22 +5,9 @@
 </header>
 
 <main class="main">
-    <section class="create-client" id="<%=post.owner%>">
-        <div class="container">
-            <h1 class="table__headline" id="<%=post.id %>">Назва таблиці: <%=post.title %></h1>
-            <% if(user.admin || user.logist) { %>
-            <div class="create-clien__name">
-                <h3 class="create-clien__headline">Створити нового клієнта</h3>
-                <form action="" class="create-client__form">
-                    <input type="text" class="create-client__form--input" id="client-headline" name="clientheadline">
-                    <input type="submit" class="client-button button create-client__form--submit" value="Створити" >
-                </form>
-            </div>
-            <% } %>
-        </div>
-    </section>
     <section class="table">
         <div class="container">
+            <h1 class="table__headline" id="<%=post.id %>">Назва таблиці: <%=post.title %></h1>
             <div class="table__head">
                 <div class="table__head--name">
                     <h3 class="table__head--describe">Ім'я клієнта</h3>
@@ -99,6 +86,19 @@
                     </div>    
                 <% } %>
             </div>
+        </div>
+    </section>
+    <section class="create-client" id="<%=post.owner%>">
+        <div class="container">
+            <% if(user.admin || user.logist) { %>
+            <div class="create-clien__name">
+                <h3 class="create-clien__headline">Створити нового клієнта</h3>
+                <form action="" class="create-client__form">
+                    <input type="text" class="create-client__form--input" id="client-headline" name="clientheadline">
+                    <input type="submit" class="client-button button create-client__form--submit" value="Створити" >
+                </form>
+            </div>
+            <% } %>
         </div>
     </section>
 </main>
