@@ -14,9 +14,12 @@
             <div class="productname__button">
                 <button class="productname__button--btn button">Створити</button>
             </div>
-            <div class="productname__box">
+            <div class="productname__box productname__box-head">
                 <div class="productname__item productname__item-head">
                     Назва товару
+                </div>
+                <div class="productname__item productname__item-head">
+                    Змінити
                 </div>
                 <div class="productname__item productname__item-head">
                     Видалити
@@ -25,7 +28,10 @@
             <% for(var i = 0; i < productnames.length; i++) { %>
             <div class="productname__box">
                 <div class="productname__item">
-                    <%= productnames[i].title %>
+                    <span class="productname__item--span">Назва товару: </span><%= productnames[i].title %>
+                </div>
+                <div class="productname__item edit">
+                    <a class="productname__delete" href="/productnames/edit/<%= productnames[i].id %>">Змінити</a>
                 </div>
                 <div class="productname__item car-expect">
                     <a class="productname__delete" href="/productnames/<%= productnames[i].id %>">Видалити</a>

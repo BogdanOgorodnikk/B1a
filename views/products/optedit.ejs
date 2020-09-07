@@ -1,0 +1,22 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="productnameedit">
+        <div class="container">
+            <div class="productnameedit__box">
+                <h3 class="optedit__text" id="<%= opts.id %>">Оптова ціна</h3>
+                <div class="productnameedit__line">
+                    <input type="text" class="optedit__line--input" value="<%= opts.opt %>">
+                </div>
+            </div>
+            <div class="productnameedit__button">
+                <button class="optedit__button--btn">Змінити</button>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

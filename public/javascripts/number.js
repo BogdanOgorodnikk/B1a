@@ -22,4 +22,11 @@ $(document).ready(function(){
             }
           });
       });
+      $('.numberedit__button--btn').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.numberedit__text').attr('id');
+        var number = $('.numberedit__line--input').val();
+
+        $(location).attr('href', `edits/${id}/${number}`);
+    });
     });

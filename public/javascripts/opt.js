@@ -22,4 +22,11 @@ $(document).ready(function(){
             }
           });
       });
+      $('.optedit__button--btn').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.optedit__text').attr('id');
+        var opt = $('.optedit__line--input').val();
+
+        $(location).attr('href', `edits/${id}/${opt}`);
+    });
     });

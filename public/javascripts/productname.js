@@ -22,4 +22,12 @@ $(document).ready(function(){
             }
           });
       });
+
+      $('.productnameedit__button--btn').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.productnameedit__text').attr('id');
+        var title = $('.productnameedit__line--input').val();
+
+        $(location).attr('href', `edits/${id}/${title}`);
     });
+});

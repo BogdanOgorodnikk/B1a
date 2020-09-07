@@ -22,4 +22,11 @@ $(document).ready(function(){
             }
           });
       });
+      $('.firmedit__button--btn').on('click', function(e) {
+        e.preventDefault();
+        var id = $('.firmedit__text').attr('id');
+        var title = $('.firmedit__line--input').val();
+
+        $(location).attr('href', `edits/${id}/${title}`);
+    });
     });

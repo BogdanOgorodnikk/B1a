@@ -14,9 +14,12 @@
             <div class="opt__button">
                 <button class="opt__button--btn button">Створити</button>
             </div>
-            <div class="productname__box">
+            <div class="productname__box productname__box-head">
                 <div class="productname__item productname__item-head">
                     Оптова ціна
+                </div>
+                <div class="productname__item productname__item-head">
+                    Змінити
                 </div>
                 <div class="productname__item productname__item-head">
                     Видалити
@@ -25,7 +28,10 @@
             <% for(var i = 0; i < opts.length; i++) { %>
             <div class="productname__box">
                 <div class="productname__item">
-                    <%= opts[i].opt %>
+                    <span class="productname__item--span">Оптова ціна: </span><%= opts[i].opt %>
+                </div>
+                <div class="productname__item edit">
+                    <a class="productname__delete" href="/opts/edit/<%= opts[i].id %>">Змінити</a>
                 </div>
                 <div class="productname__item car-expect">
                     <a class="productname__delete" href="/opts/<%= opts[i].id %>">Видалити</a>

@@ -100,4 +100,77 @@ router.get('/:id', (req, res, next) => {
 }
 });
 
+router.get('/edit/:id', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+  
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/');
+  } else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+    } else {
+      models.Number.findById(id
+      )
+      .then(numbers => {
+         res.render('products/numberedit', {
+          numbers,
+          user: {
+            id: userId,
+            login: userLogin,
+            admin: useradmin
+          }
+        }); 
+        
+      })
+    }   
+  }
+});
+
+router.get('/edit/edits/:id/:number', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+  const number = req.params.number.trim().replace(/ +(?= )/g, '');
+
+  
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/');
+  } else {
+    if (!id) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+    } else {
+        models.Number.findByIdAndUpdate(id, {
+          number: number
+        }, 
+        {
+          new: true
+        }
+      )
+      .then(numbers => {
+        models.Client.find()
+        .then(clients => {
+         res.render('tables/pithtable', {
+          numbers,
+          user: {
+            id: userId,
+            login: userLogin,
+            admin: useradmin
+          }
+         }); 
+        })
+        res.redirect('back');
+      })
+    }
+  }
+});
+
 module.exports = router;

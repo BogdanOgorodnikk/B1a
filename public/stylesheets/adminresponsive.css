@@ -100,6 +100,9 @@
     .head-none, .client-allseler__menu {
         display: none;
     }
+    .firm__form--input, .number__form--input, .opt__form--input, .productname__form--input {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 670px) {
     .pith-table__box {
@@ -159,6 +162,12 @@
         display: inline;
         font-weight: 700;
     }
+    .edit-money__box {
+        display: block;
+    }
+    .edit-money__type {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 600px) {
     .manager-money__box {
@@ -189,6 +198,16 @@
     }
     .borg__item--span {
         display: inline-block;
+    }
+    .productname__box {
+        display: block;
+        margin-top: 15px;
+    }
+    .productname__box-head {
+        display: none;
+    }
+    .productname__item--span {
+        display: inline;
     }
 }
 
