@@ -7,6 +7,9 @@ const schema = new Schema(
       type: Number,
       default: null
     },
+    car: {
+      type: String
+    },
     firms: {
       type: String,
       default: ""

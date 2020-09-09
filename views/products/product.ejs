@@ -128,6 +128,7 @@
                  <div class="client-info__box">
                      <% if(user.logist || user.admin) { %>
                      <div class="client-info__item"><input id="client-info__order" class="client-info__input" type="text" placeholder="№ замовлення"></div>
+                     <div class="client-info__item"><input id="client-info__car" class="client-info__input" type="text" placeholder="Номер машини"></div>
                      <div class="client-info__item">
                         <select id="client-info__firms" class="client-info__selector">
                             <% for(var g = 0; g < firms.length; g++) { %>
@@ -259,8 +260,9 @@
                     <div class="client-product__line--info  client-product__line--index">
                         <h3 class="client-product__line--text client-product__line--head client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span>№ За-ння</h3>
                     </div>
-                    <% } %>
-                    <% if(user.admin || user.logist || user.accountantnotnal || user.accountant) { %>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Номер машини: </span>Номер машини</h3>
+                    </div>
                     <div class="client-product__line--info client-product__firm">
                         <h3 class="client-product__line--text client-product__line--head client-product__firm"><span class="client-product__line--responsive">Фірма: </span>Фірма</h3>
                     </div>
@@ -275,7 +277,7 @@
                         <h3 class="client-product__line--text client-product__line--head client-product__data-create"><span class="client-product__line--responsive">Дата створення: </span>Дата створення</h3>
                     </div>
                     <% } %>
-                    <% if(user.admin || user.clien || user.logist || user.manager || user.accountant || user.accountantnotnal) { %>
+                    <% if(user.admin || user.logist || user.manager || user.accountant || user.accountantnotnal) { %>
                     <div class="client-product__line--info">
                         <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Назва товару: </span>Назва товару</h3>
                     </div>
@@ -285,7 +287,7 @@
                         <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Оптова: </span>Оптова</h3>
                     </div>
                     <% } %>
-                    <% if(user.admin || user.clien || user.accountant || user.manager) { %>
+                    <% if(user.admin || user.accountant || user.manager) { %>
                     <div class="client-product__line--info">
                         <h3 class="client-product__line--text client-product__line--head"><span class="client-product__line--responsive">Ціна продажу: </span>Ціна продажу</h3>
                     </div>
@@ -374,8 +376,9 @@
                         <div class="client-product__line--info car-expect  client-product__line--index">
                             <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
                         </div>
-                        <% } %>
-                        <% if(user.admin || user.logist || user.accountantnotnal || user.accountant) { %>
+                        <div class="client-product__line--info car-expect">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Номер машини: </span> <%=products[i].car %></h3>
+                        </div>
                         <div class="client-product__line--info car-expect">
                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
                         </div>
@@ -501,8 +504,9 @@
                         <div class="client-product__line--info car-pricenotnal  client-product__line--index">
                             <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
                         </div>
-                        <% } %>
-                        <% if(user.admin || user.logist || user.accountantnotnal || user.accountant) { %>
+                        <div class="client-product__line--info car-pricenotnal">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Номер машини: </span> <%=products[i].car %></h3>
+                        </div>
                         <div class="client-product__line--info car-pricenotnal">
                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
                         </div>
@@ -628,8 +632,9 @@
                         <div class="client-product__line--info car-done  client-product__line--index">
                             <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
                         </div>
-                        <% } %>
-                        <% if(user.admin || user.logist || user.accountantnotnal || user.accountant) { %>
+                        <div class="client-product__line--info car-done">
+                            <h3 class="client-product__line--text"><span class="client-product__line--responsive">Номер машини: </span> <%=products[i].car %></h3>
+                        </div>
                         <div class="client-product__line--info car-done">
                             <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
                         </div>
@@ -755,8 +760,9 @@
                     <div class="client-product__line--info  client-product__line--index">
                         <h3 class="client-product__line--text client-product__line--index"><span class="client-product__line--responsive">№ Замовлення: </span> <%=products[i].order %></h3>
                     </div>
-                    <% } %>
-                    <% if(user.admin || user.logist || user.accountantnotnal || user.accountant) { %>
+                    <div class="client-product__line--info">
+                        <h3 class="client-product__line--text"><span class="client-product__line--responsive">Номер машини: </span> <%=products[i].car %></h3>
+                    </div>
                     <div class="client-product__line--info">
                         <h3 class="client-product__line--text"><span class="client-product__line--responsive">Фірма: </span> <%=products[i].firms %></h3>
                     </div>

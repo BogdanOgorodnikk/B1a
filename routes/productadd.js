@@ -14,6 +14,7 @@ router.post('/:product', (req, res) => {
         res.redirect('/')
     } else {
       const order = req.body.order.trim().replace(/ +(?= )/g, '');
+      const car = req.body.car.trim().replace(/ +(?= )/g, '');
       const firms = req.body.firms.trim().replace(/ +(?= )/g, '');
       const title = req.body.title.trim().replace(/ +(?= )/g, '');
       const opt = req.body.opt.trim().replace(/ +(?= )/g, '');
@@ -24,11 +25,11 @@ router.post('/:product', (req, res) => {
       const client = req.body.client;
       const owner = req.body.owner;
 
-    if(!order || !firms || !title || !opt || !number || !datal) {
+    if(!order || !firms || !title || !opt || !number || !datal || !car) {
         res.json({
             ok: false,
-            error: 'Поля "№ замовлення", "Дата", "Назва фірми", "Назва товару", "Оптова ціна", "Кількість" повинні бути заповнені!',
-            fields: ['order','firms','title','opt','number','datal']
+            error: 'Поля "№ замовлення", "Номер машини", "Дата", "Назва фірми", "Назва товару", "Оптова ціна", "Кількість" повинні бути заповнені!',
+            fields: ['order','firms','title','opt','number','datal', 'car']
           });
       } else if (order.length < 1 || order.length > 64 || firms.length < 1 || firms.length > 64) {
         res.json({
@@ -62,6 +63,7 @@ router.post('/:product', (req, res) => {
       } else {
         models.Product.create({ 
             order,
+            car,
             firms,
             datal,
             opt,

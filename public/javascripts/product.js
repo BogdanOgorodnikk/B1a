@@ -6,6 +6,7 @@ $(document).ready(function(){
 
         var data = {
             order: $('#client-info__order').val(),
+            car: $('#client-info__car').val(),
             firms: $('#client-info__firms').val(),
             buyer: $('#client-info__buyer').val(),
             title: $('#client-info__name').val(),
