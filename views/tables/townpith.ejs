@@ -1,0 +1,64 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="townpith">
+        <div class="container">
+            <% for(var i = 0; i < clients.length; i++) { %>
+                <% if(clients[i].post == post.id) { %>
+                    <div class="townpith__client-name">
+                        <a href="/clientpiths/<%= clients[i].id %>" class="townpith__client-name--link"><%= clients[i].headline %></a>
+                    </div>
+                    <div class="townpith__box--head">
+                        <div class="townpith__item-head">
+                            №
+                        </div>
+                        <div class="townpith__item-head">
+                            Дата
+                        </div>
+                        <div class="townpith__item-head">
+                            Назва залишків
+                        </div>
+                        <div class="townpith__item-head">
+                            Кількість
+                        </div>
+                        <div class="townpith__item-head">
+                            Ціна
+                        </div>
+                        <div class="townpith__item-head">
+                            Ціна роздрібна
+                        </div>
+                    </div>
+                    <% for(var j = piths.length-1, index = 0; j >= 0; j--) { %>
+                        <% if(piths[j].client == clients[i].id) { %>
+                            <div class="townpith__box">
+                                <div class="townpith__item">
+                                    <span class="townpith__item--span">№: </span> <%= index++ %>
+                                </div>
+                                <div class="townpith__item">
+                                    <span class="townpith__item--span">Дата: </span> <%= piths[j].data %>
+                                </div>
+                                <div class="townpith__item">
+                                    <span class="townpith__item--span">Назва залишків: </span> <%= piths[j].title %>
+                                </div>
+                                <div class="townpith__item">
+                                    <span class="townpith__item--span">Кількість: </span> <%= piths[j].number %>
+                                </div>
+                                <div class="townpith__item">
+                                    <span class="townpith__item--span">Ціна: </span> <%= piths[j].price %>
+                                </div>
+                                <div class="townpith__item">
+                                    <span class="townpith__item--span">Ціна роздрібна: </span> <%= piths[j].rosdb %>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

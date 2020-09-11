@@ -1250,7 +1250,51 @@ body {
   color: #fff;
   margin-top: 15px;
 }
-
+.townpith {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.townpith__box, .townpith__box--head {
+  display: flex;
+}
+.townpith__box--head {
+  text-align: center;
+}
+.townpith__item-head {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #131313;
+  border: 1px solid #262626;
+  padding: 5px 0px;
+}
+.townpith__item, .townpith__client-name {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+  border: 1px solid #262626;
+  text-align: center;
+}
+.townpith__client-name {
+  margin-top: 15px;
+  text-align: left;
+  font-weight: 700;
+  padding: 5px 0px;
+  background: #fed100;
+}
+.townpith__client-name--link {
+  text-decoration: none;
+  color: #131313;
+}
+.townpith__client-name--link:hover {
+  color: #fff;
+}
+.townpith__item--span {
+  display: none;
+}
 
 .none {
   display: none; }

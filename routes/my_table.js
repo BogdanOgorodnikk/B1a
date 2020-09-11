@@ -407,4 +407,48 @@ router.get('/tabledelete/:id', (req, res, next) => {
 }
 });
 
+router.get('/tablepith/:id', (req, res, next) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+  const usermanager = req.session.userManager;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+
+  if(!userId || !userLogin || !useradmin && !usermanager) {
+    res.redirect('/');
+  } else if (!id) {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  } else {
+    models.Post.findById(id)
+    .then(post => {
+      if (!post) {
+        const err = new Error('Not Found');
+        err.status = 404;
+        next(err);
+      } else {
+        models.Client.find()
+        .then(clients => {
+          models.Pith.find()
+            .then(piths => {
+              res.render('tables/townpith', {
+                post,
+                clients,
+                piths,
+                user: {
+                  id: userId,
+                  login: userLogin,
+                  admin: useradmin,
+                  manager: usermanager
+                }
+              });
+            })
+
+        });
+      }
+    });
+  }
+});
+
 module.exports = router;

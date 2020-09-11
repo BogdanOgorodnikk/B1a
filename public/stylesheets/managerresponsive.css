@@ -123,6 +123,20 @@
         display: inline;
         font-weight: 700;
     }
+    .townpith__box {
+        display: block;
+        margin-bottom: 15px;
+    }
+    .townpith__item {
+        text-align: left;
+    }
+    .townpith__item--span {
+        display: inline-block;
+        font-weight: 700;
+    }
+    .townpith__box--head {
+        display: none;
+    }
 }
 @media screen and (max-width: 500px) {
     .my-table__box {

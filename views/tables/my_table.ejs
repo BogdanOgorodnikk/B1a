@@ -33,6 +33,11 @@
                     </div>
                     <% } %>
                     <% } %>
+                    <% if(user.admin || user.manager && user.login == posts[i].manager || user.manager && user.login == posts[i].securitymanager || user.manager && user.login == posts[i].securitymanagersecond) { %>
+                    <div class="my-table__item">
+                        <h3 class="my-table__info"><a href="tablepith/<%=posts[i].id %>" class="my-table__link">Залишки клієнтів міста</a></h3>
+                    </div>
+                    <% } %>
                     <% if(user.admin) { %>
                     <div class="my-table__item edit">
                         <h3 class="my-table__info"><a href="tablesedit/<%=posts[i].id %>" class="my-table__link">Редагувати</a></h3>
