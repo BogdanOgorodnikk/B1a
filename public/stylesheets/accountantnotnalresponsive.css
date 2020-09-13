@@ -51,6 +51,20 @@
         display: inline-block;
     }
 }
+@media screen and (max-width: 670px) {
+    .pay__box {
+        display: block;
+        margin-top: 15px;
+    }
+    .pay__item-head {
+        display: none;
+    }
+    .pay__item--respons {
+        display: inline-block;
+        font-weight: 700;
+        width: 130px;
+    }
+}
 @media screen and (max-width: 600px) {
     .about__item--photo {
         display: none;
