@@ -132,7 +132,7 @@
                              <h3 class="client-product__line--text allseler-width"><span class="client-product__line--responsive">Ім'я клієнта:</span>
                          <% for (var j = 0; j < clients.length; j++) { %>
                              <% if(clients[j].id == products[i].client) { %>
-                             <%= clients[j].headline %>
+                             <a href="products/<%= clients[j].url %>"><%= clients[j].headline %></a>
                              <% } %>
                          <% } %>
                              </h3>
