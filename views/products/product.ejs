@@ -139,8 +139,10 @@
                         </select>
                      </div>
                      <% } %>
-                     <% if(user.admin || user.logist || user.manager || user.accountantnotnal || user.accountant) { %>
-                     <div class="client-info__item"><input id="client-info__datal" class="client-info__input" type="text" placeholder="Дата"></div>
+                     <% if(user.admin || user.logist || user.manager || user.accountantnotnal || user.accountant) { %> 
+                    <% var datenow = new Date(); %>
+                    <% datenow.setDate(datenow.getDate()-1); %>
+                     <div class="client-info__item"><input id="client-info__datal" class="client-info__input" type="text" placeholder="Дата" value="<%= moment(datenow).format('DD.MM.YYYY') %>"></div>
                      <% } %>
                      <% if(user.admin || user.logist) { %>
                      <div class="client-info__item">
