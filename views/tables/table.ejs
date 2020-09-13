@@ -7,6 +7,12 @@
 <main class="main">
     <section class="table">
         <div class="container">
+            <% clients.sort(function(a, b) { %>
+                <% if(a.headline.toLowerCase() < b.headline.toLowerCase()) { return -1; } %>
+                <% if(a.headline.toLowerCase() > b.headline.toLowerCase()) { return 1; } %>
+                 <% return 0; %>
+             <% }); %>
+
             <h1 class="table__headline" id="<%=post.id %>">Назва таблиці: <%=post.title %></h1>
             <div class="table__head">
                 <div class="table__head--name">

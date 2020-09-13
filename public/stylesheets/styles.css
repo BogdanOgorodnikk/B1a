@@ -1287,9 +1287,18 @@ body {
 .townpith__item--span {
   display: none;
 }
-.borg__box:hover {
+.borg__box:hover, .pay__box:hover {
   background: #fed100;
 }
+.pay__sum {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #131313;
+  border: 1px solid #262626;
+}
+
 
 .none {
   display: none; }

@@ -33,6 +33,13 @@ $(document).ready(function(){
       $(this).val(false)
     }
   })
+  $('.pay__item--check').on('click', function() {
+    if(this.checked) {
+      $(this).val(true)
+    } else {
+      $(this).val(false)
+    }
+  })
   $(window).on('scroll', function () {
     if ($(this).scrollTop() > 250) {
       $('.client-product__menu').addClass("f-menu");
@@ -47,7 +54,7 @@ $(document).ready(function(){
       $('.client-allseler__menu').removeClass("f-menu");
     }
   });
-  $("body").on("contextmenu", false);
+  // $("body").on("contextmenu", false);
 
 
 
@@ -108,6 +115,28 @@ $(document).ready(function(){
       } else {
         return true;
       }
+    }
+  }
+
+  var paySumMoney = document.querySelectorAll('.pay__item--check');
+  var paySum = document.querySelector('.pay__sum--span');
+  var arrmoney = [];
+  for(var i = 0; i < paySumMoney.length; i++) {
+    paySumMoney[i].onclick = function() {
+      var mon = +this.parentElement.previousElementSibling.children[1].innerHTML;
+      var sum = 0;
+      if(this.value == "true") {
+        arrmoney.push(mon);
+        for(var j = 0; j < arrmoney.length; j++) {
+          sum += arrmoney[j];
+        }
+      } else {
+        arrmoney.pop(mon);
+        for(var j = 0; j < arrmoney.length; j++) {
+          sum += arrmoney[j];
+        }
+      }
+      paySum.innerHTML = sum;
     }
   }
 

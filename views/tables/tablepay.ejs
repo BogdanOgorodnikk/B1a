@@ -7,6 +7,9 @@
 <main class="main">
     <section class="pay">
         <div class="container">
+            <div class="pay__sum">
+                Сума: <span class="pay__sum--span"></span>
+            </div>
             <div class="pay__box">
                 <div class="pay__item pay__item-head">
                     №
@@ -22,6 +25,9 @@
                 </div>
                 <div class="pay__item pay__item-head">
                     Сума
+                </div>
+                <div class="pay__item pay__item-head">
+                    Розраховувати
                 </div>
             </div>
             <% for(var i = products.length-1, index = 0; i >= 0; i--) { %>
@@ -49,9 +55,12 @@
                         </div>
                         <% } else { %>
                         <div class="pay__item">
-                            <span class="pay__item--respons">Сума: </span><%= products[i].nal %>
+                            <span class="pay__item--respons">Сума: </span><span><%= products[i].nal %></span>
                         </div>
                         <% } %>
+                        <div class="pay__item">
+                            <span class="pay__item--respons">Розраховувати: </span> <input type="checkbox" value="false" class="pay__item--check">
+                        </div>
                     </div>
                 <% } %>
             <% } %>
