@@ -24,6 +24,7 @@ $(document).ready(function(){
         e.preventDefault();
         var id = $('.product-edit__id').attr('id');
         var order = $('#product-edit__order').val();
+        var car = $('#product-edit__car').val();
         var firms = $('#product-edit__firms').val();
         var datal = $('#product-edit__datal').val();
         var title = $('#product-edit__title').val();
@@ -38,7 +39,7 @@ $(document).ready(function(){
         var client = $('#product-edit__owner').val();
         var deltadebtnal = $('.product-edit__deltadebtnal-val').attr('id');
         var deltadebt = $('.product-edit__deltadebt-val').attr('id');
-        $(location).attr('href', `admin/${id}/${order}/${firms}/${datal}/${title}/${number}/${delivery}/${price}/${opt}/${nal}/${notnal}/${pricenotnal}/${deliverynotnal}/${deltadebtnal}/${deltadebt}/${client}`);
+        $(location).attr('href', `admin/${id}/${order}/${car}/${firms}/${datal}/${title}/${number}/${delivery}/${price}/${opt}/${nal}/${notnal}/${pricenotnal}/${deliverynotnal}/${deltadebtnal}/${deltadebt}/${client}`);
     });
     $('#product-edit__click-notnal').on('click', function(e) {
         e.preventDefault();

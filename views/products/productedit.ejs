@@ -71,6 +71,18 @@
                 <div class="user-edit__block">
                     <div class="alluser-edit__item">
                         <h3 class="alluser-edit__title">
+                            Номер машини
+                        </h3>
+                    </div>
+                    <% if(product.car == null) { %>
+                    <input class="user-edit__input" id="product-edit__car" type="text" placeholder="login" value="-">
+                    <% } else { %>
+                    <input class="user-edit__input" id="product-edit__car" type="text" placeholder="login" value="<%= product.car %>">
+                    <% } %>
+                </div>
+                <div class="user-edit__block">
+                    <div class="alluser-edit__item">
+                        <h3 class="alluser-edit__title">
                             Назва фірми
                         </h3>
                     </div>

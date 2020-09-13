@@ -167,12 +167,13 @@ const product = require('../models/product');
     }
   });
 
-  router.get('/admin/:id/:order/:firms/:datal/:title/:number/:delivery/:price/:opt/:nal/:notnal/:pricenotnal/:deliverynotnal/:deltadebtnal/:deltadebt/:client', (req, res, next) => {
+  router.get('/admin/:id/:order/:car/:firms/:datal/:title/:number/:delivery/:price/:opt/:nal/:notnal/:pricenotnal/:deliverynotnal/:deltadebtnal/:deltadebt/:client', (req, res, next) => {
     const userId = req.session.userId;
     const userLogin = req.session.userLogin;
     const useradmin = req.session.userAdmin;
     const id = req.params.id.trim().replace(/ +(?= )/g, '');
     const order = req.params.order.trim().replace(/ +(?= )/g, '');
+    const car = req.params.car.trim().replace(/ +(?= )/g, '');
     const firms = req.params.firms.trim().replace(/ +(?= )/g, '');
     const datal = req.params.datal.trim().replace(/ +(?= )/g, '');
     const title = req.params.title.trim().replace(/ +(?= )/g, '');
@@ -199,6 +200,7 @@ const product = require('../models/product');
       } else {
         models.Product.findByIdAndUpdate(id, {
           order: order,
+          car: car,
           firms: firms,
           datal: datal,
           title: title,
