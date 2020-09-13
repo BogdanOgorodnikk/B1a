@@ -140,6 +140,14 @@ $(document).ready(function(){
     }
   }
 
+  var clientInfoSelector = document.querySelectorAll('.client-info__selector');
+  for(var i = 0; i < clientInfoSelector.length; i++) {
+    clientInfoSelector[i].onclick = function() {
+      var before = this.previousElementSibling;
+      before.value = this.value;
+    }
+  }
+
   setInterval(function() {
     window.location.href = '/api/auth/logout';
   }, 600000);

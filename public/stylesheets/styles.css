@@ -1174,12 +1174,13 @@ body {
 }
 .client-info__selector {
   border: 1px solid #000;
-  padding: 13px 12px;
+  padding: 13.1px 12px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #131313;
-  width: 160px;
+  width: 20px;
+  margin-left: -5px;
 }
 .edit-money {
   margin-top: 30px;

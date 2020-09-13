@@ -130,7 +130,9 @@
                      <div class="client-info__item"><input id="client-info__order" class="client-info__input" type="text" placeholder="№ замовлення"></div>
                      <div class="client-info__item"><input id="client-info__car" class="client-info__input" type="text" placeholder="Номер машини"></div>
                      <div class="client-info__item">
-                        <select id="client-info__firms" class="client-info__selector">
+                        <input type="text" class="client-info__input" id="client-info__firms">
+                        <select class="client-info__selector">
+                            <option hidden selected></option>
                             <% for(var g = 0; g < firms.length; g++) { %>
                                 <option value="<%=firms[g].title %>" ><%=firms[g].title %></option>
                             <% } %>
@@ -142,7 +144,9 @@
                      <% } %>
                      <% if(user.admin || user.logist) { %>
                      <div class="client-info__item">
-                        <select id="client-info__name" class="client-info__selector">
+                        <input type="text" class="client-info__input" id="client-info__name">
+                        <select class="client-info__selector">
+                            <option hidden selected></option>
                             <% for(var g = 0; g < productnames.length; g++) { %>
                                 <option value="<%=productnames[g].title %>" ><%=productnames[g].title %></option>
                             <% } %>
@@ -154,14 +158,18 @@
                     <% } %>
                      <% if(user.logist || user.admin) { %>
                     <div class="client-info__item">
-                        <select id="client-info__opt" class="client-info__selector">
+                        <input type="text" class="client-info__input" id="client-info__opt">
+                        <select class="client-info__selector">
+                            <option hidden selected></option>
                             <% for(var g = 0; g < opts.length; g++) { %>
                                 <option value="<%=opts[g].opt %>" ><%=opts[g].opt %></option>
                             <% } %>
                         </select>
                     </div>
                     <div class="client-info__item">
-                        <select id="client-info__number" class="client-info__selector">
+                        <input type="text" class="client-info__input" id="client-info__number"> 
+                        <select class="client-info__selector">
+                            <option hidden selected></option>
                             <% for(var g = 0; g < numbers.length; g++) { %>
                                 <option value="<%=numbers[g].number %>" ><%=numbers[g].number %></option>
                             <% } %>
