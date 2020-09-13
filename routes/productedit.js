@@ -220,7 +220,9 @@ const product = require('../models/product');
           client: client}, {new: true}
         )
         .then(product => {
-          res.render('allusers/alluserdone', {
+          models.Client.find()
+          .then(clients => {
+            res.render('tables/pithtable', {
             product,
             user: {
               id: userId,
@@ -228,6 +230,8 @@ const product = require('../models/product');
               admin: useradmin
             }
           });
+          })
+          
           res.redirect('back');
         })
       }   
