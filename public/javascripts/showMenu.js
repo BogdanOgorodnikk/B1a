@@ -56,8 +56,6 @@ $(document).ready(function(){
   });
   $("body").on("contextmenu", false);
 
-  var datenow = new Date();
-
 
   var deltaNotNal = document.querySelectorAll(".delta-notnal");
   var deltaNotNalOut = document.querySelectorAll(".delta-notnal__out"); 
