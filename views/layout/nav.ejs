@@ -9,7 +9,6 @@
                 </button>
               </div>
             <ul class="nav__list" id="nav-main"> 
-                <li class="nav__item"><a href="/" class="nav__link">На головну</a></li>
                 <% if(user.id && user.login) { %>
                 <li class="nav__item"><a href="/tables/my_tables" class="nav__link">Міста</a></li>
                 <% if(user.admin || user.logist) { %>
