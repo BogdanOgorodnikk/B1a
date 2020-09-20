@@ -37,6 +37,9 @@
                 <% if(user.admin || user.accountant) { %>
                     <li class="nav__item"><a href="/paynals" class="nav__link">Оплати по нал</a></li>
                 <% } %>
+                <% if(user.admin || user.accountant) { %>
+                    <li class="nav__item"><a href="/allpiths" class="nav__link">Всі залишки</a></li>
+                <% } %>
                 <% } %>
             </ul>
         </nav>

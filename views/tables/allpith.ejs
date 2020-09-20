@@ -1,0 +1,66 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="allpith">
+
+        <div class="container">
+            <div class="allpith__box allpith__box-head">
+                <div class="allpith__item allpith__item-head">
+                    №
+                </div>
+                <div class="allpith__item allpith__item-head">
+                    Ім'я клієнта
+                </div>
+                <div class="allpith__item allpith__item-head">
+                    Дата
+                </div>
+                <div class="allpith__item allpith__item-head">
+                    Назва
+                </div>
+                <div class="allpith__item allpith__item-head">
+                    Кількість
+                </div>
+                <div class="allpith__item allpith__item-head">
+                    Ціна
+                </div>
+                <div class="allpith__item allpith__item-head">
+                    Ц мішка
+                </div>
+            </div>
+            <% for(var i = piths.length-1, index = 0; i >= 0; i--) { %>
+            <div class="allpith__box">
+                <div class="allpith__item">
+                    <span class="allpith__item--span">№:</span> <%= index++ %>
+                </div>
+                <div class="allpith__item">
+                    <% for(var j = 0; j < clients.length; j++) { %>
+                        <% if(piths[i].client == clients[j].id) { %>
+                            <span class="allpith__item--span">Ім'я кілєнта:</span> <a href="products/<%= clients[j].url %>"><%= clients[j].headline %></a>
+                        <% } %>
+                    <% } %>
+                </div>
+                <div class="allpith__item">
+                    <span class="allpith__item--span">Дата:</span> <%= piths[i].data %>
+                </div>
+                <div class="allpith__item">
+                    <span class="allpith__item--span">Назва:</span> <%= piths[i].title %>
+                </div>
+                <div class="allpith__item">
+                    <span class="allpith__item--span">Кількість:</span> <%= piths[i].number %>
+                </div>
+                <div class="allpith__item">
+                    <span class="allpith__item--span">Ціна:</span> <%= piths[i].price %>
+                </div>
+                <div class="allpith__item">
+                    <span class="allpith__item--span">Ц мішка:</span> <%= piths[i].rosdb %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

@@ -46,6 +46,19 @@
         display: inline-block;
     }
 }
+@media screen and (max-width: 840px) {
+    .allpith__box {
+        display: block;
+        margin-top: 15px;
+    }
+    .allpith__box-head {
+        display: none;
+    }
+    .allpith__item--span {
+        display: inline;
+        font-weight: 700;
+    }
+}
 @media screen and (max-width: 670px) {
     .pay__box {
         display: block;

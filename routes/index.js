@@ -19,6 +19,7 @@ const firm = require('./firm');
 const opt = require('./opt');
 const number = require('./number');
 const editmoney = require('./editmoney');
+const allpith = require('./allpith');
 
 
 module.exports = {
@@ -42,5 +43,6 @@ module.exports = {
     firm,
     opt,
     number,
-    editmoney
+    editmoney,
+    allpith
 };

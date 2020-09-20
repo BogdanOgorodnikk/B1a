@@ -103,6 +103,7 @@ app.use('/firms', routes.firm);
 app.use('/opts', routes.opt);
 app.use('/numbers', routes.number);
 app.use('/editmoneys', routes.editmoney);
+app.use('/allpiths', routes.allpith);
 
 
 // catch 404 and forward to error handler
