@@ -20,7 +20,7 @@ body {
 .main {
   background: #e0e0e0;
   overflow: hidden;
-  min-height: calc(112vh - 253px);
+  min-height: calc(112vh - 236px);
 }
 .footer {
   background: #262626;
