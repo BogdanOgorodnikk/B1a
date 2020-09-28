@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
+moment.locale('ru');
 
 const models = require('../models');
 
@@ -37,6 +39,7 @@ router.get('/:id', (req, res, next) => {
                 clients,
                 piths,
                 pross,
+                moment,
             user: {
               id: userId,
               login: userLogin,

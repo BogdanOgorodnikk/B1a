@@ -7,10 +7,11 @@
 <main class="main">
     <section class="pith-create">
         <div class="container">
-            <h3 class="pith-create__headline" id="<%=clients.id %>">Залишки клієнта: <%=clients.headline %></h3>
+            <h3 class="pith-create__headline" id="<%=clients.id %>">Залишки клієнта: <%=clients.headline %></h3>  
+            <% var datenow = new Date(); %>
             <form action="" class="pith-create__form">
                 <div class="client-info__box">
-                    <div class="client-info__item"><input id="pith-create__data" class="client-info__input" type="text" placeholder="Дата"></div>
+                    <div class="client-info__item"><input id="pith-create__data" class="client-info__input" type="text" value="<%= moment(datenow).format('DD.MM.YYYY') %>" placeholder="Дата"></div>
                     <div class="client-info__item"><input id="pith-create__title" class="client-info__input" type="text" placeholder="Назва залишків"></div>
                     <div class="client-info__item"><input id="pith-create__number" class="client-info__input" type="text" placeholder="Кількість залишків"></div>
                     <div class="client-info__item"><input id="pith-create__price" class="client-info__input" type="text" placeholder="Ціна залишків"></div>
