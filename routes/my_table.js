@@ -162,7 +162,7 @@ router.get('/:table', (req, res, next) => {
                 {  
                   $group :{ _id: "$client",
                   salary: {
-                    $sum: { $cond: {if: {$eq: ["$math", true]}, then: {$multiply: [ "$price", "$number" ]}, else: 0} }}
+                    $sum: { $cond: {if: {$eq: ["$math", true]}, then: {$multiply: [ "$price", "$number",1.4 ]}, else: 0} }}
                   }
                 }
                 ]).then(sumpith => {
