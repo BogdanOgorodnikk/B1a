@@ -1322,6 +1322,13 @@ body {
 .allpith__item--span {
   display: none;
 }
+.create {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.create__block {
+  margin-top: 10px;
+}
 
 .none {
   display: none; }

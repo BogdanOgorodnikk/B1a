@@ -1,0 +1,25 @@
+<%- include('../layout/head.ejs')%>
+<header class="header">
+    <%- include('../layout/header.ejs')%>
+    <%- include('../layout/nav.ejs')%>
+</header>
+
+<main class="main">
+    <section class="create">
+        <div class="container">
+            <div class="create__block">
+                <a href="/productnames" class="create__block--link">Створити продукт</a>
+            </div>
+            <div class="create__block">
+                <a href="/firms" class="create__block--link">Створити фірму</a>
+            </div>
+            <div class="create__block">
+                <a href="/opts" class="create__block--link">Створити оптову ціну</a>
+            </div>
+            <div class="create__block">
+                <a href="/numbers" class="create__block--link">Створити кількість тон</a>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('../layout/footer.ejs')%>

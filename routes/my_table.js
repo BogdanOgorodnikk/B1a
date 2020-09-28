@@ -451,4 +451,22 @@ router.get('/tablepith/:id', (req, res, next) => {
   }
 });
 
+router.get('/', (req, res) => {
+  const userId = req.session.userId;
+  const userLogin = req.session.userLogin;
+  const useradmin = req.session.userAdmin;
+
+  if(!userId || !userLogin || !useradmin) {
+    res.redirect('/');
+  } else {
+    res.render('tables/createtable', {
+      user: {
+        id: userId,
+        login: userLogin,
+        admin: useradmin
+      }
+    });
+  }
+});
+
 module.exports = router;
